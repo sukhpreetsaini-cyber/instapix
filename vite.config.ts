@@ -19,6 +19,7 @@ export default defineConfig({
   // Relative base so the build works whether it's hosted at a domain root
   // or under a GitHub Pages subpath (https://<user>.github.io/<repo>/).
   base: './',
+  base: './',
   plugins: [
     figmaAssetResolver(),
     react(),
