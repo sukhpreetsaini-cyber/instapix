@@ -121,14 +121,21 @@ export default function App() {
   const [authModal, setAuthModal] = useState<'login' | 'cadastro' | 'esqueci-senha' | null>(null);
   const [bottomNavShrunk, setBottomNavShrunk] = useState(false);
 
-  // Bottom nav shrinks on scroll up, returns to normal size on scroll down.
+  // Bottom nav shrinks as soon as the page starts scrolling down, and stays shrunk —
+  // even while paused — until the user scrolls back up toward the top.
   useEffect(() => {
     const lastY = { current: window.scrollY };
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastY.current;
       if (Math.abs(delta) < 6) return; // ignore tiny/jittery movement
-      setBottomNavShrunk(delta < 0 && y > 40);
+      if (y <= 40) {
+        setBottomNavShrunk(false);
+      } else if (delta > 0) {
+        setBottomNavShrunk(true); // scrolling down
+      } else {
+        setBottomNavShrunk(false); // scrolling back up
+      }
       lastY.current = y;
     };
     window.addEventListener('scroll', onScroll, { passive: true });
