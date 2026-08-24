@@ -48,7 +48,7 @@ export const tournaments: Tournament[] = [
     name: 'Torneio PG Soft',
     description: 'Jogue os melhores slots da PG Soft e acumule pontos para subir no ranking. Os melhores jogadores da semana dividem R$50.000 em prêmios.',
     badge: 'Semanal',
-    badgeColor: '#58B3AD',
+    badgeColor: '#58B0B1',
     image: imgGatesOlympus,
     totalPrize: 'R$ 50.000',
     prizes: [
@@ -89,7 +89,7 @@ export const tournaments: Tournament[] = [
     name: 'Torneio VIP Especial',
     description: 'Torneio exclusivo para os jogadores mais ativos da plataforma. Prêmios excepcionais para os mais dedicados.',
     badge: 'Especial',
-    badgeColor: '#F5A623',
+    badgeColor: '#505050',
     image: imgZeus,
     totalPrize: 'R$ 100.000',
     prizes: [
@@ -127,7 +127,7 @@ export const tournaments: Tournament[] = [
     name: 'Torneio Diário Slots',
     description: 'Todos os dias um novo torneio começa. Acumule pontos e dispute os prêmios diários.',
     badge: 'Diário',
-    badgeColor: '#1E9F96',
+    badgeColor: '#58B0B1',
     image: imgSweetBonanza,
     totalPrize: 'R$ 5.000',
     prizes: [
@@ -160,7 +160,7 @@ export const tournaments: Tournament[] = [
     name: 'Grande Prêmio Mensal',
     description: 'O maior torneio do mês com o maior prêmio total da plataforma. Jogue durante todo o mês e conquiste sua fatia de R$200.000.',
     badge: 'Mensal',
-    badgeColor: '#ef4444',
+    badgeColor: '#EF4444',
     image: imgBuffaloKing,
     totalPrize: 'R$ 200.000',
     prizes: [
@@ -199,7 +199,7 @@ export const tournaments: Tournament[] = [
     name: 'Torneio Fortune',
     description: 'Torneio semanal focado nos melhores slots de Fortune da PG Soft.',
     badge: 'Semanal',
-    badgeColor: '#58B3AD',
+    badgeColor: '#58B0B1',
     image: imgMrTreasure,
     totalPrize: 'R$ 30.000',
     prizes: [
@@ -236,7 +236,7 @@ export const tournaments: Tournament[] = [
     name: 'Torneio Crash Night',
     description: 'Torneio especial para os amantes de jogos crash. Quem voar mais alto leva o prêmio.',
     badge: 'Especial',
-    badgeColor: '#FB7185',
+    badgeColor: '#EF4444',
     image: imgDoomsday,
     totalPrize: 'R$ 15.000',
     prizes: [
@@ -271,7 +271,7 @@ export const tournaments: Tournament[] = [
     name: 'Torneio Aviadores',
     description: 'Torneio encerrado.',
     badge: 'Encerrado',
-    badgeColor: '#6b7280',
+    badgeColor: '#8D8D8D',
     image: imgOx,
     totalPrize: 'R$ 25.000',
     prizes: [
@@ -296,7 +296,7 @@ export const tournaments: Tournament[] = [
     name: 'Torneio Pragmatic',
     description: 'Torneio encerrado.',
     badge: 'Encerrado',
-    badgeColor: '#6b7280',
+    badgeColor: '#8D8D8D',
     image: imgPenalty,
     totalPrize: 'R$ 80.000',
     prizes: [
@@ -321,7 +321,7 @@ export const tournaments: Tournament[] = [
     name: 'Copa Fortune',
     description: 'Torneio encerrado.',
     badge: 'Encerrado',
-    badgeColor: '#6b7280',
+    badgeColor: '#8D8D8D',
     image: imgFortuneMouse,
     totalPrize: 'R$ 45.000',
     prizes: [

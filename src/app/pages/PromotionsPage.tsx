@@ -14,7 +14,6 @@ const BANNERS = { b1: imgB1, b2: imgB2, b3: imgB3, b4: imgB4, b5: imgB5, b6: img
 const tabs = [
   { label: 'Todos', value: 'all' },
   { label: 'Cassino', value: 'cassino' },
-  { label: 'Esportes', value: 'esportes' },
   { label: 'Torneios', value: 'torneios' },
   { label: 'Outros', value: 'outros' },
 ];
@@ -27,8 +26,8 @@ interface Props {
 function PromoCard({ promo, onOpen }: { promo: Promo; onOpen: () => void }) {
   const banner = BANNERS[promo.bannerKey];
   return (
-    <div className="rounded-xl overflow-hidden border border-white/10 bg-[#163242] flex flex-col hover:border-white/20 transition-colors">
-      <div className="h-44 overflow-hidden bg-[#0F232D]">
+    <div className="rounded-xl overflow-hidden border border-black/10 bg-[#E3E3E3] flex flex-col hover:border-black/20 transition-colors">
+      <div className="h-44 overflow-hidden bg-[#EDEDED]">
         <img src={banner} alt={promo.title} className="w-full h-full object-cover" />
       </div>
       <div className="p-5 flex flex-col flex-1">
@@ -37,12 +36,12 @@ function PromoCard({ promo, onOpen }: { promo: Promo; onOpen: () => void }) {
         >
           {promo.tag}
         </span>
-        <h3 className="text-white font-bold text-base mb-1 leading-snug">{promo.title}</h3>
-        <p className="text-gray-400 text-xs mb-1">{promo.subtitle}</p>
+        <h3 className="text-black font-bold text-base mb-1 leading-snug">{promo.title}</h3>
+        <p className="text-gray-600 text-xs mb-1">{promo.subtitle}</p>
         <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-4">{promo.description}</p>
         <button
           onClick={onOpen}
-          className="w-full py-2.5 rounded-xl text-white text-sm font-semibold transition-opacity hover:opacity-90 bg-[#1E9F96]"
+          className="w-full py-2.5 rounded-xl text-white text-sm font-semibold transition-opacity hover:opacity-90 bg-[#58B0B1]"
         >
           {promo.cta}
         </button>
@@ -74,9 +73,9 @@ export function PromotionsPage({ onOpenPromo, onNavigateStatic }: Props) {
                 data-nav-id={tab.value}
                 onClick={() => setActiveTab(tab.value)}
                 className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                  activeTab === tab.value ? 'text-white' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
+                  activeTab === tab.value ? 'text-white' : 'bg-black/5 text-gray-600 hover:text-black hover:bg-black/10'
                 }`}
-                style={activeTab === tab.value ? { backgroundColor: '#1E9F96' } : {}}
+                style={activeTab === tab.value ? { backgroundColor: '#58B0B1' } : {}}
               >
                 {tab.label}
               </button>
@@ -88,8 +87,8 @@ export function PromotionsPage({ onOpenPromo, onNavigateStatic }: Props) {
       <div className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-8">
           <div className="text-center mb-8">
-            <h1 className="text-white text-2xl sm:text-3xl font-bold mb-2">Promoções</h1>
-            <p className="text-gray-400 text-sm sm:text-base">Confira nossas promoções exclusivas e aproveite os melhores bônus!</p>
+            <h1 className="text-black text-2xl sm:text-3xl font-bold mb-2">Promoções</h1>
+            <p className="text-gray-600 text-sm sm:text-base">Confira nossas promoções exclusivas e aproveite os melhores bônus!</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

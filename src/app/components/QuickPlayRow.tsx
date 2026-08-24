@@ -22,7 +22,7 @@ export function QuickPlayRow({ onNavigate }: QuickPlayRowProps) {
         <button
           key={item.title}
           onClick={() => onNavigate?.(item.page)}
-          className="relative rounded-xl overflow-hidden border border-white/8 hover:opacity-90 transition-opacity flex-shrink-0 w-[85%] sm:w-auto snap-center"
+          className="relative rounded-xl overflow-hidden border border-black/8 hover:opacity-90 transition-opacity flex-shrink-0 w-[85%] sm:w-auto snap-center"
         >
           <img src={item.img} alt={item.title} className="w-full h-auto object-cover" />
         </button>

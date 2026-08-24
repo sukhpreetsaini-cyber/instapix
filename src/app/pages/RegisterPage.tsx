@@ -71,11 +71,11 @@ export function RegisterPage({ onNavigate, onClose }: Props) {
     if (Object.keys(newErrors).length === 0) onNavigate('home');
   };
 
-  const labelCls = 'text-gray-400 text-xs font-semibold uppercase tracking-wide mb-2 block';
+  const labelCls = 'text-gray-600 text-xs font-semibold uppercase tracking-wide mb-2 block';
   const inputBase =
-    'w-full bg-white/5 border rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors placeholder-white/30';
+    'w-full bg-white border rounded-xl px-4 py-3 text-black text-sm focus:outline-none transition-colors placeholder-black/30';
   const borderCls = (hasError?: string) =>
-    hasError ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-[#1E9F96]';
+    hasError ? 'border-red-500 focus:border-red-500' : 'border-black/10 focus:border-[#58B0B1]';
   const fieldError = (msg?: string) =>
     msg ? (
       <p className="flex items-center gap-1.5 text-red-400 text-xs mt-1.5">
@@ -87,7 +87,7 @@ export function RegisterPage({ onNavigate, onClose }: Props) {
   return (
     <AuthLayout onGoHome={() => onNavigate('home')} onClose={onClose}>
       <div className="px-6 sm:px-8 py-8">
-        <h1 className="text-white font-extrabold text-2xl mb-6">Cadastre-se</h1>
+        <h1 className="text-[#58B0B1] font-extrabold text-2xl mb-6">Cadastre-se</h1>
 
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
           <div>
@@ -137,7 +137,7 @@ export function RegisterPage({ onNavigate, onClose }: Props) {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black transition-colors"
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
@@ -146,17 +146,17 @@ export function RegisterPage({ onNavigate, onClose }: Props) {
           </div>
 
           <div>
-            <label className="flex items-start gap-2.5 text-gray-400 text-xs cursor-pointer leading-relaxed">
+            <label className="flex items-start gap-2.5 text-gray-600 text-xs cursor-pointer leading-relaxed">
               <input
                 type="checkbox"
                 checked={agreed}
                 onChange={e => { setAgreed(e.target.checked); clearError('agreed'); }}
-                className="w-4 h-4 mt-0.5 rounded border-white/20 bg-white/5 accent-[#1E9F96] flex-shrink-0"
+                className="w-4 h-4 mt-0.5 rounded border-black/20 bg-white accent-[#58B0B1] flex-shrink-0"
               />
               <span>
                 Confirmo que tenho mais de 18 anos e aceito os{' '}
-                <span className="text-[#58B3AD] underline">Termos e Condições</span> e a{' '}
-                <span className="text-[#58B3AD] underline">Política de Privacidade</span>
+                <span className="text-[#58B0B1] underline">Termos e Condições</span> e a{' '}
+                <span className="text-[#58B0B1] underline">Política de Privacidade</span>
               </span>
             </label>
             {fieldError(errors.agreed)}
@@ -164,14 +164,14 @@ export function RegisterPage({ onNavigate, onClose }: Props) {
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-xl font-bold text-white text-sm transition-opacity hover:opacity-90 bg-[#1E9F96]"
+            className="w-full py-3.5 rounded-xl font-bold text-white text-sm transition-opacity hover:opacity-90 bg-[#58B0B1]"
           >
             Continuar
           </button>
         </form>
 
-        <p className="text-center text-gray-400 text-xs mt-6">
-          <button onClick={() => onNavigate('login')} className="hover:text-white transition-colors">
+        <p className="text-center text-gray-600 text-xs mt-6">
+          <button onClick={() => onNavigate('login')} className="hover:text-black transition-colors">
             « Voltar ao Login
           </button>
         </p>

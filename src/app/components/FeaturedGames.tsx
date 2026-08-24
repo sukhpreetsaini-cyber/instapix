@@ -5,40 +5,40 @@ const games = [
     title: 'AVIATOR',
     provider: 'Spribe',
     rtp: '93.13%',
-    gradient: 'from-red-600 to-orange-500',
+    gradient: 'from-neutral-600 to-neutral-500',
     emoji: '✈️'
   },
   {
     title: 'FORTUNE',
     provider: 'PG Soft',
     rtp: '94.54%',
-    gradient: 'from-orange-500 to-yellow-500',
+    gradient: 'from-neutral-500 to-neutral-500',
     emoji: '🎰'
   },
   {
     title: 'GATES OF OLYMPUS',
     provider: 'Pragmatic',
     rtp: '97.01%',
-    gradient: 'from-[#163242] to-[#0A1015]',
+    gradient: 'from-[#E3E3E3] to-[#F9F9F9]',
     emoji: '⚡'
   },
   {
     title: 'BIG BASS BONANZA',
     provider: 'Reel Kingdom',
     rtp: '96.71%',
-    gradient: 'from-[#1F475F] to-[#0F242F]',
+    gradient: 'from-[#D5D5D5] to-[#ECECEC]',
     emoji: '🎣'
   },
   {
     title: 'ROULETTE',
     provider: 'Evolution',
-    gradient: 'from-red-700 to-red-900',
+    gradient: 'from-neutral-700 to-neutral-900',
     emoji: '🎡'
   },
   {
     title: 'BLACKJACK',
     provider: 'Evolution',
-    gradient: 'from-[#1F475F] to-[#0F242F]',
+    gradient: 'from-[#D5D5D5] to-[#ECECEC]',
     emoji: '🃏'
   },
 ];
@@ -47,10 +47,10 @@ export function FeaturedGames() {
   return (
     <div className="mb-6">
       <div className="flex items-center gap-2 mb-4">
-        <div className="bg-gradient-to-r from-orange-500 to-red-500 p-1 rounded">
-          <Star className="w-4 h-4 text-white fill-white" />
+        <div className="bg-gradient-to-r from-neutral-500 to-neutral-500 p-1 rounded">
+          <Star className="w-4 h-4 text-black fill-white" />
         </div>
-        <h2 className="text-white text-lg">Jogos em Destaque</h2>
+        <h2 className="text-black text-lg">Jogos em Destaque</h2>
       </div>
 
       <div className="grid grid-cols-6 gap-4">
@@ -63,11 +63,11 @@ export function FeaturedGames() {
               {game.emoji}
             </div>
             <div className="bg-black/40 p-3 text-left">
-              <h3 className="text-white text-sm font-bold mb-1">{game.title}</h3>
+              <h3 className="text-black text-sm font-bold mb-1">{game.title}</h3>
               <div className="flex items-center justify-between">
-                <span className="text-gray-300 text-xs">{game.provider}</span>
+                <span className="text-gray-700 text-xs">{game.provider}</span>
                 {game.rtp && (
-                  <span className="text-green-400 text-xs">{game.rtp}</span>
+                  <span className="text-black text-xs">{game.rtp}</span>
                 )}
               </div>
             </div>

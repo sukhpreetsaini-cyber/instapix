@@ -13,11 +13,11 @@ export function ChatSidebar() {
   const [message, setMessage] = useState('');
 
   return (
-    <aside className="w-80 bg-[#0F242F] border-l border-white/10 flex flex-col">
-      <div className="px-4 py-3 border-b border-white/10 flex items-center justify-between">
-        <h3 className="text-white">Chat ao vivo</h3>
-        <span className="text-green-400 text-sm flex items-center gap-1">
-          <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+    <aside className="w-80 bg-[#ECECEC] border-l border-black/10 flex flex-col">
+      <div className="px-4 py-3 border-b border-black/10 flex items-center justify-between">
+        <h3 className="text-black">Chat ao vivo</h3>
+        <span className="text-black text-sm flex items-center gap-1">
+          <span className="w-2 h-2 bg-black rounded-full"></span>
           Online: 147
         </span>
       </div>
@@ -25,34 +25,34 @@ export function ChatSidebar() {
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((msg, index) => (
           <div key={index} className="flex gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#1F475F] to-[#58B3AD] rounded-full flex items-center justify-center flex-shrink-0 text-sm">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#D5D5D5] to-[#58B0B1] rounded-full flex items-center justify-center flex-shrink-0 text-sm">
               {msg.avatar}
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-white text-sm">{msg.user}</span>
+                <span className="text-black text-sm">{msg.user}</span>
                 <span className="text-gray-500 text-xs">{msg.time}</span>
               </div>
-              <p className="text-gray-300 text-sm break-words">{msg.message}</p>
+              <p className="text-gray-700 text-sm break-words">{msg.message}</p>
             </div>
-            <button className="text-gray-500 hover:text-gray-300 flex-shrink-0">
+            <button className="text-gray-500 hover:text-gray-700 flex-shrink-0">
               <MoreHorizontal className="w-4 h-4" />
             </button>
           </div>
         ))}
       </div>
 
-      <div className="p-4 border-t border-white/10">
-        <p className="text-gray-400 text-xs mb-2">Participe do bate-papo ao vivo para conversar com outros apostadores!</p>
+      <div className="p-4 border-t border-black/10">
+        <p className="text-gray-600 text-xs mb-2">Participe do bate-papo ao vivo para conversar com outros apostadores!</p>
         <div className="flex gap-2">
           <input
             type="text"
             placeholder="Digite sua mensagem..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="flex-1 bg-[#163242] text-white placeholder-gray-500 px-3 py-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#58B3AD]"
+            className="flex-1 bg-[#E3E3E3] text-black placeholder-gray-500 px-3 py-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#58B0B1]"
           />
-          <button className="bg-[#1F475F] hover:bg-[#28607A] text-white p-2 rounded">
+          <button className="bg-[#D5D5D5] hover:bg-[#CCCCCC] text-black p-2 rounded">
             <Send className="w-4 h-4" />
           </button>
         </div>

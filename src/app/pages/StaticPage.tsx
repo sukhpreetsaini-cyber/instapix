@@ -24,22 +24,22 @@ interface Props {
 }
 
 export function StaticPage({ page, onGoHome, onNavigate }: Props) {
-  const accent = page.accentColor ?? '#58B3AD';
+  const accent = page.accentColor ?? '#58B0B1';
 
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#163242] to-[#132C3A] border-b border-white/15">
+        <div className="bg-gradient-to-b from-[#E3E3E3] to-[#E8E8E8] border-b border-black/15">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
             {/* Breadcrumb */}
             <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-6">
-              <button onClick={onGoHome} className="hover:text-white transition-colors">Início</button>
+              <button onClick={onGoHome} className="hover:text-black transition-colors">Início</button>
               <ChevronRight className="w-3 h-3" />
-              <span className="text-gray-300">{page.title}</span>
+              <span className="text-gray-700">{page.title}</span>
             </div>
-            <h1 className="text-white text-3xl sm:text-4xl font-bold mb-3">{page.title}</h1>
-            <p className="text-gray-400 text-base">{page.subtitle}</p>
+            <h1 className="text-black text-3xl sm:text-4xl font-bold mb-3">{page.title}</h1>
+            <p className="text-gray-600 text-base">{page.subtitle}</p>
           </div>
         </div>
 
@@ -56,14 +56,14 @@ export function StaticPage({ page, onGoHome, onNavigate }: Props) {
               }
               if (block.type === 'h3') {
                 return (
-                  <h3 key={i} className="text-base sm:text-lg font-semibold text-white mt-6 mb-2">
+                  <h3 key={i} className="text-base sm:text-lg font-semibold text-black mt-6 mb-2">
                     {block.text}
                   </h3>
                 );
               }
               if (block.type === 'p') {
                 return (
-                  <p key={i} className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                  <p key={i} className="text-gray-600 text-sm sm:text-base leading-relaxed">
                     {block.text}
                   </p>
                 );
@@ -72,7 +72,7 @@ export function StaticPage({ page, onGoHome, onNavigate }: Props) {
                 return (
                   <ul key={i} className="space-y-2 pl-1">
                     {block.items?.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm sm:text-base text-gray-400">
+                      <li key={j} className="flex items-start gap-2 text-sm sm:text-base text-gray-600">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 dyn-bg" style={{ '--dyn-bg': accent } as React.CSSProperties} />
                         {item}
                       </li>
@@ -84,8 +84,8 @@ export function StaticPage({ page, onGoHome, onNavigate }: Props) {
                 return (
                   <ol key={i} className="space-y-2 pl-1">
                     {block.items?.map((item, j) => (
-                      <li key={j} className="flex items-start gap-3 text-sm sm:text-base text-gray-400">
-                        <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white mt-0.5 dyn-bg" style={{ '--dyn-bg': accent } as React.CSSProperties}>
+                      <li key={j} className="flex items-start gap-3 text-sm sm:text-base text-gray-600">
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-black mt-0.5 dyn-bg" style={{ '--dyn-bg': accent } as React.CSSProperties}>
                           {j + 1}
                         </span>
                         {item}
@@ -96,27 +96,27 @@ export function StaticPage({ page, onGoHome, onNavigate }: Props) {
               }
               if (block.type === 'highlight') {
                 return (
-                  <div key={i} className="rounded-xl p-4 sm:p-5 border-l-4 bg-white/5 dyn-border" style={{ '--dyn-border': accent } as React.CSSProperties}>
-                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed">{block.text}</p>
+                  <div key={i} className="rounded-xl p-4 sm:p-5 border-l-4 bg-black/5 dyn-border" style={{ '--dyn-border': accent } as React.CSSProperties}>
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{block.text}</p>
                   </div>
                 );
               }
               if (block.type === 'table' && block.headers && block.rows) {
                 return (
-                  <div key={i} className="overflow-x-auto rounded-xl border border-white/10">
+                  <div key={i} className="overflow-x-auto rounded-xl border border-black/10">
                     <table className="w-full text-sm">
                       <thead>
-                        <tr className="bg-white/10">
+                        <tr className="bg-black/10">
                           {block.headers.map((h, j) => (
-                            <th key={j} className="text-left px-4 py-3 text-white font-semibold">{h}</th>
+                            <th key={j} className="text-left px-4 py-3 text-black font-semibold">{h}</th>
                           ))}
                         </tr>
                       </thead>
                       <tbody>
                         {block.rows.map((row, j) => (
-                          <tr key={j} className={j % 2 === 0 ? 'bg-white/3' : 'bg-white/5'}>
+                          <tr key={j} className={j % 2 === 0 ? 'bg-black/3' : 'bg-black/5'}>
                             {row.map((cell, k) => (
-                              <td key={k} className="px-4 py-3 text-gray-400">{cell}</td>
+                              <td key={k} className="px-4 py-3 text-gray-600">{cell}</td>
                             ))}
                           </tr>
                         ))}

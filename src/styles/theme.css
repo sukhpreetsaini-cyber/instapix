@@ -1,25 +1,25 @@
 :root {
   --font-size: 16px;
-  --background: #ffffff;
+  --background: #FFFFFF;
   --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
+  --card: #FFFFFF;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
+  --primary: #58B0B1;
+  --primary-foreground: #FFFFFF;
+  --secondary: oklch(0.95 0 0);
+  --secondary-foreground: #141414;
+  --muted: #ECECEC;
+  --muted-foreground: #737373;
+  --accent: #ECECEC;
+  --accent-foreground: #141414;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
   --border: rgba(0, 0, 0, 0.1);
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+  --input-background: #F3F3F3;
+  --switch-background: #CECECE;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --ring: oklch(0.708 0 0);
@@ -31,7 +31,7 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
+  --sidebar-primary: #FBFBFB;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -46,16 +46,16 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: #58B0B1;
+  --primary-foreground: #0A0A0A;
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
   --ring: oklch(0.439 0 0);
@@ -153,19 +153,19 @@
   }
 
   .mobile-nav-ring {
-    background: conic-gradient(from 0deg, transparent 0%, #58B3AD 18%, transparent 28%, transparent 100%);
+    background: conic-gradient(from 0deg, transparent 0%, #58B0B1 12%, #8FD3CE 20%, transparent 28%, transparent 100%);
   }
 
   .mobile-nav-glow {
-    box-shadow: 0 0 4px 2px rgba(88, 179, 173, 0.45);
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.45);
   }
 
   /* Page background glow — shorter on mobile so it covers ~30-35% of the viewport instead of a fixed tall block.
      Near-black base to match the sidebar/header/footer, with a duotone radial glow (derived from the
      Instapix logo: purple core fading through blue into teal) layered on top near the banner area. */
   .page-glow-bg {
-    background-color: #0C181F;
-    background-image: radial-gradient(at 50% 0%, rgba(70, 130, 180, 0.45) 0%, rgba(60, 145, 160, 0.32) 40%, rgba(88, 179, 173, 0.16) 65%, transparent 90%);
+    background-color: #EEEEEE;
+    background-image: radial-gradient(at 50% 0%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.28) 65%, transparent 90%);
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100% 680px;
@@ -193,19 +193,13 @@
 
   /* Recurring static gradients / effects, previously duplicated as inline styles */
   .modal-card-glow {
-    background-color: #132C3A;
-    background-image: radial-gradient(at 50% 0%, rgba(70, 130, 180, 0.5) 0%, rgba(60, 145, 160, 0.35) 45%, rgba(88, 179, 173, 0.18) 70%, transparent 90%);
-    background-repeat: no-repeat;
-    background-position: top center;
+    background-color: #FFFFFF;
   }
   .auth-card-glow {
-    background-color: #132C3A;
-    background-image: radial-gradient(at 50% 0%, rgba(70, 130, 180, 0.5) 0%, rgba(60, 145, 160, 0.35) 45%, rgba(88, 179, 173, 0.18) 70%, transparent 90%);
-    background-repeat: no-repeat;
-    background-position: top center;
+    background-color: #FFFFFF;
   }
   .auth-page-bg {
-    background: radial-gradient(circle at 50% -10%, #1F475F 0%, #163242 45%, #0C181F 100%);
+    background: radial-gradient(circle at 50% -10%, #D5D5D5 0%, #E3E3E3 45%, #F5F5F5 100%);
   }
   .modal-overlay-78 {
     background: rgba(0, 0, 0, 0.78);
@@ -216,16 +210,16 @@
     backdrop-filter: blur(6px);
   }
   .tournament-card-bg {
-    background: linear-gradient(160deg, #0F242F 0%, #0A1015 100%);
+    background: linear-gradient(160deg, #ECECEC 0%, #F9F9F9 100%);
   }
   .account-gradient-a {
-    background: linear-gradient(135deg, #163242 0%, #1F475F 100%);
+    background: linear-gradient(135deg, #E3E3E3 0%, #D5D5D5 100%);
   }
   .account-gradient-b {
-    background: linear-gradient(135deg, #1F475F 0%, #163242 100%);
+    background: linear-gradient(135deg, #D5D5D5 0%, #E3E3E3 100%);
   }
   .sidebar-scroll-fade {
-    background: linear-gradient(to bottom, transparent, #183648 40%, #183648 100%);
+    background: linear-gradient(to bottom, transparent, #D0D0D0 40%, #D0D0D0 100%);
   }
   .icon-shadow-soft {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
@@ -238,12 +232,12 @@
   }
   .bonus-card-face {
     backface-visibility: hidden;
-    background: radial-gradient(circle 200px at center 120%, #1F475F, #0F242F);
+    background: radial-gradient(circle 200px at center 120%, #D5D5D5, #ECECEC);
   }
   .bonus-card-back {
     backface-visibility: hidden;
     transform: rotateY(180deg);
-    background: radial-gradient(circle 200px at center 120%, #1F475F, #0F242F);
+    background: radial-gradient(circle 200px at center 120%, #D5D5D5, #ECECEC);
   }
   .aspect-tournament {
     aspect-ratio: 16/7;
@@ -261,6 +255,6 @@
     -ms-overflow-style: none;
   }
   .corner-notch {
-    background: radial-gradient(circle at 100% 100%, transparent 20px, #0C181F 20px);
+    background: radial-gradient(circle at 100% 100%, transparent 20px, #F5F5F5 20px);
   }
 }

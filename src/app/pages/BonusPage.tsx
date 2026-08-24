@@ -24,8 +24,8 @@ const bonuses: Bonus[] = [
     title: '1 Rodada Grátis para Aviator',
     description: 'Sua rodada grátis está disponível. Jogue agora no Aviator!',
     emoji: '🎰',
-    gradient: 'from-red-900/60 to-black',
-    accentColor: '#ef4444',
+    gradient: 'from-neutral-900/60 to-black',
+    accentColor: '#EF4444',
     rollover: '1x',
     expiry: '6 dias',
     type: 'Cassino',
@@ -42,32 +42,12 @@ const bonuses: Bonus[] = [
     ],
   },
   {
-    id: 'boost-saldo',
-    title: 'Bônus Alavancagem',
-    description: 'Receba 50% de bônus sobre o seu saldo atual. Saldo mínimo para ativação: R$10,00.',
-    emoji: '💰',
-    gradient: 'from-yellow-900/60 to-black',
-    accentColor: '#58B3AD',
-    rollover: '1x',
-    expiry: '29 dias',
-    type: 'Esportes',
-    status: 'active',
-    rules: [
-      'Bônus de 50% sobre o saldo atual no momento da ativação.',
-      'Saldo mínimo para ativação: R$10,00.',
-      'Rollover de 1x sobre o valor do bônus.',
-      'Prazo de validade: 29 dias após ativação.',
-      'Não cumulável com outras promoções ativas.',
-      'Bônus aplicado automaticamente após ativação.',
-    ],
-  },
-  {
     id: 'welcome-100',
     title: 'Bônus de Boas-Vindas 100%',
     description: 'Dobre seu primeiro depósito com 100% de bônus até R$500.',
     emoji: '🎁',
-    gradient: 'from-green-900/60 to-black',
-    accentColor: '#1E9F96',
+    gradient: 'from-neutral-800/60 to-black',
+    accentColor: '#58B0B1',
     rollover: '5x',
     expiry: '1 dia',
     type: 'Cassino',
@@ -83,32 +63,12 @@ const bonuses: Bonus[] = [
     ],
   },
   {
-    id: 'recarga-100',
-    title: 'Bônus de Recarga — 100%',
-    description: 'Recarregue sua conta e ganhe 100% de bônus extra.',
-    emoji: '⚡',
-    gradient: 'from-amber-900/60 to-black',
-    accentColor: '#F5A623',
-    rollover: '1x',
-    expiry: '1 dia',
-    type: 'Esportes',
-    status: 'available',
-    requiresDeposit: true,
-    rules: [
-      'Válido para recargas feitas às segundas-feiras.',
-      'Depósito mínimo: R$30 | Bônus máximo: R$300.',
-      'Rollover de 20x sobre o bônus.',
-      'Prazo de 7 dias para uso.',
-      'Ativação manual obrigatória antes do depósito.',
-    ],
-  },
-  {
     id: 'cashback',
     title: 'Cashback Semanal 10%',
     description: 'Receba 10% de volta das suas perdas toda semana, sem rollover.',
     emoji: '💵',
-    gradient: 'from-teal-900/60 to-black',
-    accentColor: '#14b8a6',
+    gradient: 'from-neutral-900/60 to-black',
+    accentColor: '#58B0B1',
     rollover: '1x',
     expiry: '5 dias',
     type: 'Cassino',
@@ -126,8 +86,8 @@ const bonuses: Bonus[] = [
     title: 'Bônus de Torneio',
     description: 'Participe dos torneios diários e ganhe bônus extra pelo ranking.',
     emoji: '🏆',
-    gradient: 'from-orange-900/60 to-black',
-    accentColor: '#f97316',
+    gradient: 'from-neutral-900/60 to-black',
+    accentColor: '#6F6F6F',
     rollover: '10x',
     expiry: '3 dias',
     type: 'Cassino',
@@ -140,32 +100,12 @@ const bonuses: Bonus[] = [
     ],
   },
   {
-    id: 'seguro-esportes',
-    title: 'Seguro de Aposta Esportiva',
-    description: 'Primeira aposta esportiva protegida — devolvemos até R$200 se perder.',
-    emoji: '🛡️',
-    gradient: 'from-rose-900/60 to-black',
-    accentColor: '#FB7185',
-    rollover: '3x',
-    expiry: '30 dias',
-    type: 'Esportes',
-    status: 'available',
-    requiresDeposit: true,
-    rules: [
-      'Válido apenas para a primeira aposta esportiva.',
-      'Odd mínima de 1.5 para qualificar.',
-      'Devolução máxima: R$200 em crédito.',
-      'Rollover de 3x sobre o crédito devolvido.',
-      'Prazo de 7 dias para uso do crédito.',
-    ],
-  },
-  {
     id: 'recarga-inactive',
     title: 'Bônus de Recarga — 100%',
     description: 'Saldo de R$0,00',
     emoji: '💸',
-    gradient: 'from-gray-900/60 to-black',
-    accentColor: '#6b7280',
+    gradient: 'from-gray-100/60 to-black',
+    accentColor: '#8D8D8D',
     rollover: '1x',
     expiry: '30/06/26',
     type: 'Cassino',
@@ -178,8 +118,8 @@ const bonuses: Bonus[] = [
     title: 'Bônus de Boas-Vindas 100%',
     description: 'Bônus expirado por não completar o rollover no prazo.',
     emoji: '⏰',
-    gradient: 'from-gray-900/60 to-black',
-    accentColor: '#6b7280',
+    gradient: 'from-gray-100/60 to-black',
+    accentColor: '#8D8D8D',
     rollover: '30x',
     expiry: 'Expirado',
     type: 'Cassino',
@@ -200,7 +140,7 @@ function BonusCard({ bonus }: { bonus: Bonus }) {
       >
         {/* ── FRONT ── */}
         <div
-          className={`relative w-full h-full min-h-[280px] rounded-2xl border flex flex-col bonus-card-face ${bonus.status === 'inactive' ? 'border-white/20 opacity-55' : 'border-white/15'}`}
+          className={`relative w-full h-full min-h-[280px] rounded-2xl border flex flex-col bonus-card-face ${bonus.status === 'inactive' ? 'border-black/20 opacity-55' : 'border-black/15'}`}
         >
           {/* LIVE badge */}
           {bonus.status === 'active' && (
@@ -214,8 +154,8 @@ function BonusCard({ bonus }: { bonus: Bonus }) {
             <div className="flex items-start gap-4">
               {/* Left: title + desc */}
               <div className="flex-1 min-w-0">
-                <h3 className="text-white font-bold text-base leading-snug mb-1.5">{bonus.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">{bonus.description}</p>
+                <h3 className="text-black font-bold text-base leading-snug mb-1.5">{bonus.title}</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">{bonus.description}</p>
               </div>
               {/* Right: emoji + Rules button stacked */}
               <div className="flex flex-col items-center gap-2 flex-shrink-0">
@@ -228,7 +168,7 @@ function BonusCard({ bonus }: { bonus: Bonus }) {
                 {bonus.status !== 'inactive' && (
                   <button
                     onClick={() => setFlipped(true)}
-                    className="text-[10px] font-semibold px-2.5 py-1 rounded-xl border transition-colors hover:bg-white/10 whitespace-nowrap dyn-border dyn-text" style={{ '--dyn-border': bonus.accentColor + '60', '--dyn-text': bonus.accentColor } as React.CSSProperties}
+                    className="text-[10px] font-semibold px-2.5 py-1 rounded-xl border transition-colors hover:bg-black/10 whitespace-nowrap dyn-border dyn-text" style={{ '--dyn-border': bonus.accentColor + '60', '--dyn-text': bonus.accentColor } as React.CSSProperties}
                   >
                     Regras
                   </button>
@@ -237,7 +177,7 @@ function BonusCard({ bonus }: { bonus: Bonus }) {
             </div>
 
             {/* Divider */}
-            <div className="h-px bg-white/6" />
+            <div className="h-px bg-black/6" />
 
             {/* Meta row — evenly spaced */}
             <div className="grid grid-cols-3 gap-2">
@@ -246,12 +186,12 @@ function BonusCard({ bonus }: { bonus: Bonus }) {
                 { icon: Tag,   label: 'Tipo',      value: bonus.type },
                 { icon: Zap,   label: 'Rollover',  value: bonus.rollover },
               ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="bg-white/8 rounded-xl px-3 py-2.5 flex flex-col gap-1 border border-white/15">
+                <div key={label} className="bg-black/8 rounded-xl px-3 py-2.5 flex flex-col gap-1 border border-black/15">
                   <div className="flex items-center gap-1">
                     <Icon className="w-3 h-3 flex-shrink-0 dyn-text" style={{ '--dyn-text': bonus.accentColor } as React.CSSProperties} />
-                    <p className="text-[9px] text-gray-300 uppercase tracking-wide">{label}</p>
+                    <p className="text-[9px] text-gray-700 uppercase tracking-wide">{label}</p>
                   </div>
-                  <p className="text-white text-xs font-semibold truncate">{value}</p>
+                  <p className="text-black text-xs font-semibold truncate">{value}</p>
                 </div>
               ))}
             </div>
@@ -260,32 +200,32 @@ function BonusCard({ bonus }: { bonus: Bonus }) {
             <div className="mt-auto">
               {bonus.status === 'active' && (
                 <div className="flex gap-2">
-                  <button className="flex-1 py-2.5 rounded-xl text-xs font-bold border border-white/10 text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center gap-1.5">
+                  <button className="flex-1 py-2.5 rounded-xl text-xs font-bold border border-black/10 text-gray-700 hover:bg-black/5 transition-colors flex items-center justify-center gap-1.5">
                     <XCircle className="w-3.5 h-3.5" /> Desistir
                   </button>
-                  <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 flex items-center justify-center gap-1.5 bg-[#1E9F96]">
+                  <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 flex items-center justify-center gap-1.5 bg-[#58B0B1]">
                     <CheckCircle2 className="w-3.5 h-3.5" /> Continuar
                   </button>
                 </div>
               )}
               {bonus.status === 'available' && (
                 bonus.requiresDeposit ? (
-                  <button className="w-full py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 transition-opacity bg-[#1E9F96]">
+                  <button className="w-full py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 transition-opacity bg-[#58B0B1]">
                     DEPOSITE AGORA PARA ATIVAR
                   </button>
                 ) : (
                   <div className="flex gap-2">
-                    <button className="flex-1 py-2.5 rounded-xl text-xs font-bold border border-white/10 text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center gap-1.5">
+                    <button className="flex-1 py-2.5 rounded-xl text-xs font-bold border border-black/10 text-gray-700 hover:bg-black/5 transition-colors flex items-center justify-center gap-1.5">
                       <XCircle className="w-3.5 h-3.5" /> Rejeitar
                     </button>
-                    <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 flex items-center justify-center gap-1.5 bg-[#1E9F96]">
+                    <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 flex items-center justify-center gap-1.5 bg-[#58B0B1]">
                       <Gift className="w-3.5 h-3.5" /> Ativar
                     </button>
                   </div>
                 )
               )}
               {bonus.status === 'inactive' && bonus.inactiveReason && (
-                <p className="text-gray-600 text-xs italic text-center py-1">{bonus.inactiveReason}</p>
+                <p className="text-gray-400 text-xs italic text-center py-1">{bonus.inactiveReason}</p>
               )}
             </div>
           </div>
@@ -293,22 +233,22 @@ function BonusCard({ bonus }: { bonus: Bonus }) {
 
         {/* ── BACK — Rules ── */}
         <div
-          className="absolute inset-0 rounded-2xl border border-white/15 flex flex-col min-h-0 bonus-card-back"
+          className="absolute inset-0 rounded-2xl border border-black/15 flex flex-col min-h-0 bonus-card-back"
         >
           <div className="p-5 flex flex-col flex-1 gap-4 min-h-0">
             <div className="flex items-center justify-between">
-              <h4 className="text-white font-bold text-sm">Regras do Bônus</h4>
+              <h4 className="text-black font-bold text-sm">Regras do Bônus</h4>
               <button
                 onClick={() => setFlipped(false)}
-                className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 transition-colors"
+                className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl bg-black/5 hover:bg-black/10 text-gray-700 border border-black/10 transition-colors"
               >
                 <RotateCcw className="w-3 h-3" /> Voltar
               </button>
             </div>
             <ul className="space-y-2.5 flex-1 min-h-0 overflow-y-auto [scrollbar-width:none]">
               {bonus.rules.map((rule, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-xs text-gray-400 leading-relaxed">
-                  <span className="w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center text-[9px] font-bold text-white mt-0.5 bg-[#1E9F96]">
+                <li key={i} className="flex items-start gap-2.5 text-xs text-gray-600 leading-relaxed">
+                  <span className="w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center text-[9px] font-bold text-white mt-0.5 bg-[#58B0B1]">
                     {i + 1}
                   </span>
                   {rule}
@@ -328,9 +268,9 @@ interface Props {
 }
 
 const SECTIONS = [
-  { key: 'active',    label: 'Bônus Em Uso',       icon: Star,    color: '#ef4444' },
-  { key: 'available', label: 'Bônus Para Ativar',   icon: Gift,    color: '#1E9F96' },
-  { key: 'inactive',  label: 'Bônus Inativos',      icon: XCircle, color: '#6b7280' },
+  { key: 'active',    label: 'Bônus Em Uso',       icon: Star,    color: '#EF4444' },
+  { key: 'available', label: 'Bônus Para Ativar',   icon: Gift,    color: '#58B0B1' },
+  { key: 'inactive',  label: 'Bônus Inativos',      icon: XCircle, color: '#8D8D8D' },
 ] as const;
 
 export function BonusPage({ onNavigateStatic, onOpenDeposit }: Props) {
@@ -342,7 +282,7 @@ export function BonusPage({ onNavigateStatic, onOpenDeposit }: Props) {
           <div className="flex items-center gap-2 overflow-x-auto [scrollbar-width:none] py-3 sm:pt-5 sm:pb-3">
             {SECTIONS.map(s => (
               <a key={s.key} href={`#${s.key}`}
-                className="flex-shrink-0 flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
+                className="flex-shrink-0 flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium bg-black/5 text-gray-600 hover:text-black hover:bg-black/10 transition-colors">
                 <s.icon className="w-3.5 h-3.5 dyn-text" style={{ '--dyn-text': s.color } as React.CSSProperties} />
                 {s.label}
               </a>
@@ -355,20 +295,20 @@ export function BonusPage({ onNavigateStatic, onOpenDeposit }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-10">
 
           {/* Coupon code input */}
-          <div className="bg-[#0F242F] rounded-2xl border border-white/10 p-5">
+          <div className="bg-[#ECECEC] rounded-2xl border border-black/10 p-5">
             <div className="flex items-center gap-2 mb-3">
-              <Tag className="w-4 h-4 text-[#1E9F96]" />
-              <h3 className="text-white font-semibold text-sm">Ativar Código de Bônus</h3>
+              <Tag className="w-4 h-4 text-[#58B0B1]" />
+              <h3 className="text-black font-semibold text-sm">Ativar Código de Bônus</h3>
             </div>
             <p className="text-gray-500 text-xs mb-4">Possui um cupom? Insira abaixo para resgatar seu bônus.</p>
             <div className="flex gap-3">
               <input
                 type="text"
                 placeholder="Ex: INSTA100"
-                className="flex-1 bg-[#163242] border border-white/20 rounded-xl px-4 py-2.5 text-white text-sm placeholder-gray-400 focus:outline-none focus:border-[#1E9F96] transition-colors uppercase tracking-widest"
+                className="flex-1 bg-[#E3E3E3] border border-black/20 rounded-xl px-4 py-2.5 text-black text-sm placeholder-gray-600 focus:outline-none focus:border-[#58B0B1] transition-colors uppercase tracking-widest"
               />
               <button
-                className="px-6 py-2.5 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity whitespace-nowrap bg-[#1E9F96]"
+                className="px-6 py-2.5 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity whitespace-nowrap bg-[#58B0B1]"
               >
                 Resgatar
               </button>
@@ -382,8 +322,8 @@ export function BonusPage({ onNavigateStatic, onOpenDeposit }: Props) {
               <div key={section.key} id={section.key}>
                 <div className="flex items-center gap-2 mb-4">
                   <section.icon className="w-5 h-5 dyn-text" style={{ '--dyn-text': section.color } as React.CSSProperties} />
-                  <h2 className="text-white font-bold text-lg">{section.label}</h2>
-                  <span className="text-xs font-bold px-2 py-0.5 rounded-full text-white dyn-bg dyn-text" style={{ '--dyn-bg': section.color + '33', '--dyn-text': section.color } as React.CSSProperties}>
+                  <h2 className="text-black font-bold text-lg">{section.label}</h2>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-full text-black dyn-bg dyn-text" style={{ '--dyn-bg': section.color + '33', '--dyn-text': section.color } as React.CSSProperties}>
                     {sectionBonuses.length}
                   </span>
                 </div>

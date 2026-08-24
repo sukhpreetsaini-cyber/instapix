@@ -23,18 +23,18 @@ const ICONS: Record<NotificationType, LucideIcon> = {
 };
 
 const COLORS: Record<NotificationType, string> = {
-  deposit: '#1E9F96',
-  bonus: '#58B3AD',
-  promo: '#58B3AD',
-  tournament: '#58B3AD',
-  security: '#FDBA74',
+  deposit: '#58B0B1',
+  bonus: '#58B0B1',
+  promo: '#58B0B1',
+  tournament: '#58B0B1',
+  security: '#393939',
 };
 
 const initialNotifications: Notification[] = [
   { id: '1', type: 'deposit', title: 'Depósito confirmado', description: 'Seu depósito de R$ 100,00 via PIX foi aprovado com sucesso.', time: 'há 5 min', read: false },
   { id: '2', type: 'bonus', title: 'Bônus liberado', description: 'Você recebeu R$ 50,00 de bônus no seu primeiro depósito.', time: 'há 2 horas', read: false },
   { id: '3', type: 'tournament', title: 'Torneio começando', description: 'O torneio "Batalha de Slots" começa em 1 hora. Não perca!', time: 'há 4 horas', read: false },
-  { id: '4', type: 'promo', title: 'Nova promoção disponível', description: 'Cashback de 10% em todas as apostas esportivas neste fim de semana.', time: 'ontem', read: true },
+  { id: '4', type: 'promo', title: 'Nova promoção disponível', description: 'Cashback de 10% em todos os slots neste fim de semana.', time: 'ontem', read: true },
   { id: '5', type: 'security', title: 'Novo acesso detectado', description: 'Detectamos um login na sua conta a partir de um novo dispositivo.', time: 'há 2 dias', read: true },
   { id: '6', type: 'deposit', title: 'Saque processado', description: 'Seu saque de R$ 200,00 foi processado e enviado para sua conta.', time: 'há 3 dias', read: true },
 ];
@@ -55,16 +55,16 @@ export function NotificationsPage({ onNavigateStatic }: Props) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="bg-gradient-to-r from-[#163242] via-[#1F475F] to-[#163242] border-b border-white/15">
+      <div className="bg-gradient-to-r from-[#E3E3E3] via-[#D5D5D5] to-[#E3E3E3] border-b border-black/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-[#58B3AD]/15 border border-[#58B3AD]/30 flex items-center justify-center">
-                <Bell className="w-5 h-5 text-[#58B3AD]" />
+              <div className="w-11 h-11 rounded-xl bg-[#58B0B1]/15 border border-[#58B0B1]/30 flex items-center justify-center">
+                <Bell className="w-5 h-5 text-[#58B0B1]" />
               </div>
               <div>
-                <h1 className="text-white font-extrabold text-2xl">Notificações</h1>
-                <p className="text-gray-400 text-sm">
+                <h1 className="text-black font-extrabold text-2xl">Notificações</h1>
+                <p className="text-gray-600 text-sm">
                   {unreadCount > 0 ? `${unreadCount} não lida${unreadCount > 1 ? 's' : ''}` : 'Tudo em dia'}
                 </p>
               </div>
@@ -72,7 +72,7 @@ export function NotificationsPage({ onNavigateStatic }: Props) {
             {unreadCount > 0 && (
               <button
                 onClick={markAllRead}
-                className="flex items-center gap-2 text-sm text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 rounded-xl px-4 py-2 transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-700 hover:text-black bg-black/5 hover:bg-black/10 border border-black/15 rounded-xl px-4 py-2 transition-colors"
               >
                 <CheckCheck className="w-4 h-4" />
                 Marcar todas como lidas
@@ -88,18 +88,18 @@ export function NotificationsPage({ onNavigateStatic }: Props) {
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                filter === 'all' ? 'text-white' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
+                filter === 'all' ? 'text-white' : 'bg-black/5 text-gray-600 hover:text-black hover:bg-black/10'
               }`}
-              style={filter === 'all' ? { backgroundColor: '#1E9F96' } : {}}
+              style={filter === 'all' ? { backgroundColor: '#58B0B1' } : {}}
             >
               Todas
             </button>
             <button
               onClick={() => setFilter('unread')}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                filter === 'unread' ? 'text-white' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
+                filter === 'unread' ? 'text-white' : 'bg-black/5 text-gray-600 hover:text-black hover:bg-black/10'
               }`}
-              style={filter === 'unread' ? { backgroundColor: '#1E9F96' } : {}}
+              style={filter === 'unread' ? { backgroundColor: '#58B0B1' } : {}}
             >
               Não lidas
             </button>
@@ -107,7 +107,7 @@ export function NotificationsPage({ onNavigateStatic }: Props) {
 
           {filtered.length === 0 ? (
             <div className="text-center py-20">
-              <Bell className="w-12 h-12 text-gray-700 mx-auto mb-4" />
+              <Bell className="w-12 h-12 text-gray-300 mx-auto mb-4" />
               <p className="text-gray-500 text-sm">Nenhuma notificação por aqui.</p>
             </div>
           ) : (
@@ -119,7 +119,7 @@ export function NotificationsPage({ onNavigateStatic }: Props) {
                     key={n.id}
                     onClick={() => markRead(n.id)}
                     className={`w-full flex items-start gap-4 p-4 rounded-xl border text-left transition-colors ${
-                      n.read ? 'bg-white/[0.03] border-white/10' : 'bg-white/5 border-white/15 hover:bg-white/[0.08]'
+                      n.read ? 'bg-black/[0.03] border-black/10' : 'bg-black/5 border-black/15 hover:bg-black/[0.08]'
                     }`}
                   >
                     <div
@@ -130,12 +130,12 @@ export function NotificationsPage({ onNavigateStatic }: Props) {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-2 mb-1">
-                        <p className="text-white text-sm font-semibold">{n.title}</p>
+                        <p className="text-black text-sm font-semibold">{n.title}</p>
                         <span className="text-gray-500 text-xs flex-shrink-0">{n.time}</span>
                       </div>
-                      <p className="text-gray-400 text-sm leading-relaxed">{n.description}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{n.description}</p>
                     </div>
-                    {!n.read && <span className="w-2 h-2 rounded-full bg-[#58B3AD] flex-shrink-0 mt-1.5" />}
+                    {!n.read && <span className="w-2 h-2 rounded-full bg-[#58B0B1] flex-shrink-0 mt-1.5" />}
                   </button>
                 );
               })}

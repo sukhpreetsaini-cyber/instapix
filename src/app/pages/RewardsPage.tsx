@@ -132,24 +132,24 @@ function useCashbackCountdown(timeStr: string) {
 
 // ─── Shared Design Tokens ─────────────────────────────────────────────────────
 
-const CARD = 'bg-[radial-gradient(circle_200px_at_center_120%,_#1F475F,_#0F242F)] border border-white/15 rounded-2xl overflow-hidden';
+const CARD = 'bg-[radial-gradient(circle_200px_at_center_120%,_#D5D5D5,_#ECECEC)] border border-black/15 rounded-2xl overflow-hidden';
 const BADGE_MAP: Record<RewardType, { label: string; color: string; bg: string; icon: typeof Gift }> = {
-  cashback:    { label: 'Cashback',      color: '#1E9F96', bg: '#1E9F9618', icon: Coins },
-  'free-spins': { label: 'Free Spins',  color: '#F5A623', bg: '#F5A62318', icon: Zap },
-  'free-bonus': { label: 'Free Bonus',  color: '#58B3AD', bg: '#58B3AD18', icon: Gift },
-  leverage:    { label: 'Alavancagem',   color: '#FB7185', bg: '#FB718518', icon: TrendingUp },
+  cashback:    { label: 'Cashback',      color: '#58B0B1', bg: '#58B0B118', icon: Coins },
+  'free-spins': { label: 'Free Spins',  color: '#505050', bg: '#50505018', icon: Zap },
+  'free-bonus': { label: 'Free Bonus',  color: '#58B0B1', bg: '#58B0B118', icon: Gift },
+  leverage:    { label: 'Alavancagem',   color: '#EF4444', bg: '#EF444418', icon: TrendingUp },
 };
 const FINISH_CONFIG = {
-  claimed:   { label: 'Resgatado',  icon: CheckCircle2, color: '#1E9F96' },
-  completed: { label: 'Concluído',  icon: CheckCircle2, color: '#1E9F96' },
-  expired:   { label: 'Expirado',   icon: AlertCircle,  color: '#6b7280' },
-  cancelled: { label: 'Cancelado',  icon: XCircle,      color: '#ef4444' },
+  claimed:   { label: 'Resgatado',  icon: CheckCircle2, color: '#58B0B1' },
+  completed: { label: 'Concluído',  icon: CheckCircle2, color: '#58B0B1' },
+  expired:   { label: 'Expirado',   icon: AlertCircle,  color: '#8D8D8D' },
+  cancelled: { label: 'Cancelado',  icon: XCircle,      color: '#EF4444' },
 };
 
-function ProgressBar({ value, max, color = '#1E9F96' }: { value: number; max: number; color?: string }) {
+function ProgressBar({ value, max, color = '#58B0B1' }: { value: number; max: number; color?: string }) {
   const pct = Math.min(100, (value / max) * 100);
   return (
-    <div className="w-full bg-white/8 rounded-full h-2 overflow-hidden">
+    <div className="w-full bg-black/8 rounded-full h-2 overflow-hidden">
       <div className="h-full rounded-full transition-all dyn-width dyn-bg" style={{ '--dyn-width': `${pct}%`, '--dyn-bg': color } as React.CSSProperties} />
     </div>
   );
@@ -167,7 +167,7 @@ function TypeBadge({ type }: { type: RewardType }) {
 
 function ExpiryChip({ label }: { label: string }) {
   return (
-    <span className="inline-flex items-center gap-1 text-[10px] text-gray-400 bg-white/5 border border-white/[0.08] rounded-full px-2 py-0.5">
+    <span className="inline-flex items-center gap-1 text-[10px] text-gray-600 bg-black/5 border border-black/[0.08] rounded-full px-2 py-0.5">
       <Clock className="w-2.5 h-2.5" /> {label}
     </span>
   );
@@ -184,7 +184,7 @@ function CashbackCard({ r }: { r: CashbackReward }) {
   return (
     <div className={CARD}>
       {/* Accent stripe */}
-      <div className="h-1 w-full bg-[#1E9F96]" />
+      <div className="h-1 w-full bg-[#58B0B1]" />
       <div className="p-5">
         <div className="flex items-start justify-between mb-4">
           <div>
@@ -196,17 +196,17 @@ function CashbackCard({ r }: { r: CashbackReward }) {
                 </span>
               )}
             </div>
-            <p className="text-gray-400 text-xs">{r.name}</p>
+            <p className="text-gray-600 text-xs">{r.name}</p>
           </div>
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#1E9F9618]">
-            <Coins className="w-5 h-5 text-[#1E9F96]" />
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#58B0B118]">
+            <Coins className="w-5 h-5 text-[#58B0B1]" />
           </div>
         </div>
 
         {/* Amount */}
         <div className="mb-4">
           <p className="text-gray-500 text-[10px] uppercase tracking-wide mb-0.5">Valor disponível</p>
-          <p className="font-extrabold text-3xl leading-none dyn-text" style={{ '--dyn-text': claimed ? '#6b7280' : '#1E9F96' } as React.CSSProperties}>
+          <p className="font-extrabold text-3xl leading-none dyn-text" style={{ '--dyn-text': claimed ? '#8D8D8D' : '#58B0B1' } as React.CSSProperties}>
             R$ {r.amount.toFixed(2).replace('.', ',')}
           </p>
         </div>
@@ -218,26 +218,26 @@ function CashbackCard({ r }: { r: CashbackReward }) {
             { label: 'Cashback aplicado', value: `${r.percentage}%` },
             { label: 'Disponível desde',  value: r.availableSince },
           ].map(m => (
-            <div key={m.label} className="bg-white/4 rounded-xl px-3 py-2 border border-white/15">
+            <div key={m.label} className="bg-black/4 rounded-xl px-3 py-2 border border-black/15">
               <p className="text-gray-500 text-[9px] uppercase tracking-wide">{m.label}</p>
-              <p className="text-white text-xs font-semibold mt-0.5">{m.value}</p>
+              <p className="text-black text-xs font-semibold mt-0.5">{m.value}</p>
             </div>
           ))}
 
           {/* Countdown cell — spans full width */}
           {r.status === 'available' && (
-            <div className="col-span-2 rounded-xl px-3 py-2 border flex items-center justify-between bg-[#1E9F960e] border-[#1E9F9630]">
+            <div className="col-span-2 rounded-xl px-3 py-2 border flex items-center justify-between bg-[#58B0B10E] border-[#58B0B130]">
               <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 flex-shrink-0 text-[#1E9F96]" />
-                <p className="text-[9px] uppercase tracking-wide text-[#1E9F96]">Expira em</p>
+                <Clock className="w-3.5 h-3.5 flex-shrink-0 text-[#58B0B1]" />
+                <p className="text-[9px] uppercase tracking-wide text-[#58B0B1]">Expira em</p>
               </div>
-              <p className="font-bold text-sm font-mono text-[#1E9F96]">{countdown}</p>
+              <p className="font-bold text-sm font-mono text-[#58B0B1]">{countdown}</p>
             </div>
           )}
           {r.status === 'finished' && (
-            <div className="bg-white/4 rounded-xl px-3 py-2 border border-white/15">
+            <div className="bg-black/4 rounded-xl px-3 py-2 border border-black/15">
               <p className="text-gray-500 text-[9px] uppercase tracking-wide">Data</p>
-              <p className="text-white text-xs font-semibold mt-0.5">{r.expiry}</p>
+              <p className="text-black text-xs font-semibold mt-0.5">{r.expiry}</p>
             </div>
           )}
         </div>
@@ -245,17 +245,17 @@ function CashbackCard({ r }: { r: CashbackReward }) {
         {/* CTA */}
         {r.status === 'available' && !claimed && (
           <button onClick={() => setClaimed(true)}
-            className="w-full py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity bg-[#1E9F96]">
+            className="w-full py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity bg-[#58B0B1]">
             Resgatar Cashback
           </button>
         )}
         {(claimed || r.finishedReason === 'claimed') && (
-          <div className="flex items-center gap-2 justify-center py-2.5 text-sm text-[#1E9F96]">
+          <div className="flex items-center gap-2 justify-center py-2.5 text-sm text-[#58B0B1]">
             <CheckCircle2 className="w-4 h-4" /> Creditado ao saldo real
           </div>
         )}
         {r.finishedReason === 'expired' && (
-          <p className="text-gray-600 text-xs text-center py-2">Cashback expirado sem resgate.</p>
+          <p className="text-gray-400 text-xs text-center py-2">Cashback expirado sem resgate.</p>
         )}
       </div>
     </div>
@@ -284,7 +284,7 @@ function FreeSpinsCard({ r }: { r: FreeSpinsReward }) {
                 </span>
               )}
             </div>
-            <p className="text-gray-400 text-xs">{r.name}</p>
+            <p className="text-gray-600 text-xs">{r.name}</p>
           </div>
           <div className="w-10 h-10 rounded-xl flex items-center justify-center dyn-bg" style={{ '--dyn-bg': cfg.bg } as React.CSSProperties}>
             <Zap className="w-5 h-5 dyn-text" style={{ '--dyn-text': cfg.color } as React.CSSProperties} />
@@ -308,7 +308,7 @@ function FreeSpinsCard({ r }: { r: FreeSpinsReward }) {
           </div>
           <div className="flex-1 mb-1.5 flex flex-col justify-end">
             <p className="text-gray-500 text-[9px] uppercase tracking-wide mb-0.5">Jogo</p>
-            <p className="text-white text-xs font-semibold truncate">{r.game}</p>
+            <p className="text-black text-xs font-semibold truncate">{r.game}</p>
           </div>
         </div>
 
@@ -329,20 +329,20 @@ function FreeSpinsCard({ r }: { r: FreeSpinsReward }) {
 
         {r.status === 'available' && (
           <div className="flex gap-2">
-            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-gray-300 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
+            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-gray-700 border border-black/10 bg-black/5 hover:bg-black/10 transition-colors">
               Rejeitar
             </button>
-            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 transition-opacity dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>
+            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-black hover:opacity-90 transition-opacity dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>
               Ativar
             </button>
           </div>
         )}
         {r.status === 'active' && (
           <div className="flex gap-2">
-            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-gray-300 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
+            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-gray-700 border border-black/10 bg-black/5 hover:bg-black/10 transition-colors">
               Cancelar
             </button>
-            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 transition-opacity dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>
+            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-black hover:opacity-90 transition-opacity dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>
               Continuar Jogando
             </button>
           </div>
@@ -379,7 +379,7 @@ function FreeBonusCard({ r }: { r: FreeBonusReward }) {
                 </span>
               )}
             </div>
-            <p className="text-gray-400 text-xs">{r.name}</p>
+            <p className="text-gray-600 text-xs">{r.name}</p>
           </div>
           <div className="w-10 h-10 rounded-xl flex items-center justify-center dyn-bg" style={{ '--dyn-bg': cfg.bg } as React.CSSProperties}>
             <Gift className="w-5 h-5 dyn-text" style={{ '--dyn-text': cfg.color } as React.CSSProperties} />
@@ -398,7 +398,7 @@ function FreeBonusCard({ r }: { r: FreeBonusReward }) {
 
         {/* Wagering info */}
         {r.status !== 'finished' && (
-          <div className="mb-4 bg-white/4 rounded-xl p-3 border border-white/15">
+          <div className="mb-4 bg-black/4 rounded-xl p-3 border border-black/15">
             <div className="flex justify-between text-xs mb-2">
               <span className="text-gray-500">Rollover {r.wageringRequired}x</span>
               {r.status === 'active' && <span className="dyn-text" style={{ '--dyn-text': cfg.color } as React.CSSProperties}>{pct.toFixed(0)}%</span>}
@@ -413,7 +413,7 @@ function FreeBonusCard({ r }: { r: FreeBonusReward }) {
               </>
             )}
             {r.status === 'available' && (
-              <p className="text-gray-400 text-xs">Aposte {r.wageringRequired}x o valor do bônus para liberar</p>
+              <p className="text-gray-600 text-xs">Aposte {r.wageringRequired}x o valor do bônus para liberar</p>
             )}
           </div>
         )}
@@ -424,14 +424,14 @@ function FreeBonusCard({ r }: { r: FreeBonusReward }) {
 
         {r.status === 'available' && (
           <div className="flex gap-2">
-            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-gray-300 border border-white/10 bg-white/5 hover:bg-white/10">Rejeitar</button>
-            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>Ativar</button>
+            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-gray-700 border border-black/10 bg-black/5 hover:bg-black/10">Rejeitar</button>
+            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-black hover:opacity-90 dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>Ativar</button>
           </div>
         )}
         {r.status === 'active' && (
           <div className="flex gap-2">
-            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-gray-300 border border-white/10 bg-white/5 hover:bg-white/10">Cancelar</button>
-            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>Continuar</button>
+            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-gray-700 border border-black/10 bg-black/5 hover:bg-black/10">Cancelar</button>
+            <button className="flex-1 py-2.5 rounded-xl text-xs font-bold text-black hover:opacity-90 dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>Continuar</button>
           </div>
         )}
         {r.status === 'finished' && finCfg && (
@@ -467,7 +467,7 @@ function LeverageCard({ r }: { r: LeverageReward }) {
                 </span>
               )}
             </div>
-            <p className="text-gray-400 text-xs">{r.name}</p>
+            <p className="text-gray-600 text-xs">{r.name}</p>
           </div>
           <div className="w-10 h-10 rounded-xl flex items-center justify-center dyn-bg" style={{ '--dyn-bg': cfg.bg } as React.CSSProperties}>
             <TrendingUp className="w-5 h-5 dyn-text" style={{ '--dyn-text': cfg.color } as React.CSSProperties} />
@@ -500,9 +500,9 @@ function LeverageCard({ r }: { r: LeverageReward }) {
               { label: 'Saldo mínimo', value: `R$ ${r.minBalance},00` },
               { label: 'Bônus máximo', value: `R$ ${r.maxBonus},00` },
             ].map(m => (
-              <div key={m.label} className="bg-white/4 rounded-xl px-3 py-2 border border-white/15">
+              <div key={m.label} className="bg-black/4 rounded-xl px-3 py-2 border border-black/15">
                 <p className="text-gray-500 text-[9px] uppercase tracking-wide">{m.label}</p>
-                <p className="text-white text-xs font-semibold mt-0.5">{m.value}</p>
+                <p className="text-black text-xs font-semibold mt-0.5">{m.value}</p>
               </div>
             ))}
           </div>
@@ -510,7 +510,7 @@ function LeverageCard({ r }: { r: LeverageReward }) {
 
         {/* Wagering (active) */}
         {r.status === 'active' && r.wagering != null && r.wageringRequired != null && (
-          <div className="mb-4 bg-white/4 rounded-xl p-3 border border-white/15">
+          <div className="mb-4 bg-black/4 rounded-xl p-3 border border-black/15">
             <div className="flex justify-between text-xs mb-2">
               <span className="text-gray-500">Progresso do rollover</span>
               <span className="dyn-text" style={{ '--dyn-text': cfg.color } as React.CSSProperties}>{pct.toFixed(0)}%</span>
@@ -528,12 +528,12 @@ function LeverageCard({ r }: { r: LeverageReward }) {
         </div>
 
         {r.status === 'available' && (
-          <button className="w-full py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 transition-opacity dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>
+          <button className="w-full py-2.5 rounded-xl text-xs font-bold text-black hover:opacity-90 transition-opacity dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>
             Ativar Bônus
           </button>
         )}
         {r.status === 'active' && (
-          <button className="w-full py-2.5 rounded-xl text-xs font-bold text-white hover:opacity-90 transition-opacity dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>
+          <button className="w-full py-2.5 rounded-xl text-xs font-bold text-black hover:opacity-90 transition-opacity dyn-bg" style={{ '--dyn-bg': cfg.color } as React.CSSProperties}>
             Continuar
           </button>
         )}
@@ -553,10 +553,10 @@ function EmptyState({ tab, filter }: { tab: string; filter: string }) {
   const isCashback = filter === 'cashback';
   return (
     <div className="col-span-full text-center py-16 px-6">
-      <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-white/5 border border-white/[0.08]">
-        {isCashback ? <Coins className="w-8 h-8 text-gray-600" /> : <Gift className="w-8 h-8 text-gray-600" />}
+      <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-black/5 border border-black/[0.08]">
+        {isCashback ? <Coins className="w-8 h-8 text-gray-400" /> : <Gift className="w-8 h-8 text-gray-400" />}
       </div>
-      <p className="text-white font-semibold text-base mb-2">
+      <p className="text-black font-semibold text-base mb-2">
         {tab === 'available' ? 'Nenhuma recompensa disponível' : tab === 'active' ? 'Nenhuma recompensa em uso' : 'Nenhum histórico encontrado'}
       </p>
       <p className="text-gray-500 text-sm max-w-xs mx-auto mb-4">
@@ -565,7 +565,7 @@ function EmptyState({ tab, filter }: { tab: string; filter: string }) {
           : 'No momento você não possui recompensas nesta categoria.'}
       </p>
       {isCashback && tab === 'available' && (
-        <button className="inline-flex items-center gap-1.5 px-5 py-2 rounded-xl text-sm font-semibold text-white hover:opacity-90 bg-[#1E9F96]">
+        <button className="inline-flex items-center gap-1.5 px-5 py-2 rounded-xl text-sm font-semibold text-white hover:opacity-90 bg-[#58B0B1]">
           Ver Promoção <ChevronRight className="w-3.5 h-3.5" />
         </button>
       )}
@@ -636,22 +636,22 @@ export function RewardsPage({ onNavigateStatic }: Props) {
     <div className="min-h-screen flex flex-col">
 
       {/* Hero strip */}
-      <div className="bg-gradient-to-r from-[#163242] via-[#1F475F] to-[#163242] border-b border-white/15">
+      <div className="bg-gradient-to-r from-[#E3E3E3] via-[#D5D5D5] to-[#E3E3E3] border-b border-black/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#58B3AD22]">
-                <Star className="w-5 h-5 text-[#58B3AD]" />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#58B0B122]">
+                <Star className="w-5 h-5 text-[#58B0B1]" />
               </div>
               <div>
-                <h1 className="text-white font-bold text-xl leading-tight">Recompensas</h1>
-                <p className="text-gray-400 text-xs mt-0.5">Gerencie todos os seus bônus e benefícios em um só lugar</p>
+                <h1 className="text-black font-bold text-xl leading-tight">Recompensas</h1>
+                <p className="text-gray-600 text-xs mt-0.5">Gerencie todos os seus bônus e benefícios em um só lugar</p>
               </div>
             </div>
             {totalActive > 0 && (
-              <div className="hidden sm:flex items-center gap-1.5 bg-[#1E9F96]/10 border border-[#1E9F96]/20 rounded-full px-3 py-1.5">
-                <RefreshCw className="w-3 h-3 text-[#1E9F96]" />
-                <span className="text-xs font-semibold text-[#1E9F96]">{totalActive} em uso</span>
+              <div className="hidden sm:flex items-center gap-1.5 bg-[#58B0B1]/10 border border-[#58B0B1]/20 rounded-full px-3 py-1.5">
+                <RefreshCw className="w-3 h-3 text-[#58B0B1]" />
+                <span className="text-xs font-semibold text-[#58B0B1]">{totalActive} em uso</span>
               </div>
             )}
           </div>
@@ -659,20 +659,20 @@ export function RewardsPage({ onNavigateStatic }: Props) {
       </div>
 
       {/* Sticky tabs + filters */}
-      <div className="sticky top-0 z-30 border-b border-white/15">
+      <div className="sticky top-0 z-30 border-b border-black/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
           {/* Tabs */}
-          <div className="flex border-b border-white/15">
+          <div className="flex border-b border-black/15">
             {TABS.map(t => {
               const cnt = t.count(rewards);
               const active = tab === t.key;
               return (
                 <button key={t.key} onClick={() => setTab(t.key)}
-                  className={`flex items-center gap-2 px-5 py-3.5 text-sm font-semibold border-b-2 transition-colors flex-shrink-0 dyn-border ${active ? 'text-white' : 'text-gray-400 hover:text-white border-transparent'}`} style={{ '--dyn-border': active ? '#58B3AD' : 'transparent' } as React.CSSProperties}>
+                  className={`flex items-center gap-2 px-5 py-3.5 text-sm font-semibold border-b-2 transition-colors flex-shrink-0 dyn-border ${active ? 'text-black' : 'text-gray-600 hover:text-black border-transparent'}`} style={{ '--dyn-border': active ? '#58B0B1' : 'transparent' } as React.CSSProperties}>
                   {t.label}
                   {cnt > 0 && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center dyn-bg dyn-text" style={{ '--dyn-bg': active ? '#58B3AD' : '#ffffff18', '--dyn-text': active ? '#000' : '#9ca3af' } as React.CSSProperties}>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center dyn-bg dyn-text" style={{ '--dyn-bg': active ? '#58B0B1' : '#58B0B118', '--dyn-text': active ? '#000' : '#5D5D5D' } as React.CSSProperties}>
                       {cnt}
                     </span>
                   )}
@@ -692,10 +692,10 @@ export function RewardsPage({ onNavigateStatic }: Props) {
                   data-nav-id={f.key}
                   onClick={() => setFilter(f.key)}
                   className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
-                    active ? 'text-black border-transparent dyn-bg' : 'text-gray-400 bg-white/5 border-white/[0.08] hover:text-white hover:bg-white/10'
+                    active ? 'text-black border-transparent dyn-bg' : 'text-gray-600 bg-black/5 border-black/[0.08] hover:text-black hover:bg-black/10'
                   }`}
                   style={{
-                    '--dyn-bg': typeCfg?.color ?? '#58B3AD',
+                    '--dyn-bg': typeCfg?.color ?? '#58B0B1',
                   } as React.CSSProperties}
                 >
                   {typeCfg && <typeCfg.icon className="w-3 h-3" />}

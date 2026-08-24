@@ -40,18 +40,18 @@ export function LoginPage({ onNavigate, onClose }: Props) {
   };
 
   const inputBase =
-    'w-full bg-white/5 border rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors placeholder-white/30';
+    'w-full bg-white border rounded-xl px-4 py-3 text-black text-sm focus:outline-none transition-colors placeholder-black/30';
   const borderCls = (hasError?: string) =>
-    hasError ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-[#1E9F96]';
+    hasError ? 'border-red-500 focus:border-red-500' : 'border-black/10 focus:border-[#58B0B1]';
 
   return (
     <AuthLayout onGoHome={() => onNavigate('home')} onClose={onClose}>
       <div className="px-6 sm:px-8 py-8">
-        <h1 className="text-white font-extrabold text-2xl mb-6">Entrar na Sua Conta</h1>
+        <h1 className="text-[#58B0B1] font-extrabold text-2xl mb-6">Entrar na Sua Conta</h1>
 
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
           <div>
-            <label className="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-2 block">E-mail</label>
+            <label className="text-gray-600 text-xs font-semibold uppercase tracking-wide mb-2 block">E-mail</label>
             <input
               type="email"
               placeholder="seuemail@example.com"
@@ -68,7 +68,7 @@ export function LoginPage({ onNavigate, onClose }: Props) {
           </div>
 
           <div>
-            <label className="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-2 block">Senha</label>
+            <label className="text-gray-600 text-xs font-semibold uppercase tracking-wide mb-2 block">Senha</label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -80,7 +80,7 @@ export function LoginPage({ onNavigate, onClose }: Props) {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black transition-colors"
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
@@ -94,19 +94,19 @@ export function LoginPage({ onNavigate, onClose }: Props) {
           </div>
 
           <div className="flex items-center justify-between flex-wrap gap-2">
-            <label className="flex items-center gap-2 text-gray-400 text-xs cursor-pointer">
+            <label className="flex items-center gap-2 text-gray-600 text-xs cursor-pointer">
               <input
                 type="checkbox"
                 checked={remember}
                 onChange={e => setRemember(e.target.checked)}
-                className="w-4 h-4 rounded border-white/20 bg-white/5 accent-[#1E9F96]"
+                className="w-4 h-4 rounded border-black/20 bg-white accent-[#58B0B1]"
               />
               Continuar logado
             </label>
             <button
               type="button"
               onClick={() => onNavigate('esqueci-senha')}
-              className="text-[#58B3AD] text-xs hover:text-[#7DD9D2] transition-colors"
+              className="text-[#58B0B1] text-xs hover:text-[#404040] transition-colors"
             >
               Esqueceu sua senha?
             </button>
@@ -114,17 +114,17 @@ export function LoginPage({ onNavigate, onClose }: Props) {
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-xl font-bold text-white text-sm transition-opacity hover:opacity-90 bg-[#1E9F96]"
+            className="w-full py-3.5 rounded-xl font-bold text-white text-sm transition-opacity hover:opacity-90 bg-[#58B0B1]"
           >
             Entrar
           </button>
         </form>
 
-        <p className="text-center text-gray-400 text-xs mt-6">
+        <p className="text-center text-gray-600 text-xs mt-6">
           Não tem conta?{' '}
           <button
             onClick={() => onNavigate('cadastro')}
-            className="text-[#58B3AD] font-semibold hover:text-[#7DD9D2] transition-colors"
+            className="text-[#58B0B1] font-semibold hover:text-[#404040] transition-colors"
           >
             Cadastre-se
           </button>

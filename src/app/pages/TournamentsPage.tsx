@@ -14,7 +14,7 @@ function TournamentCard({ t, onDetail }: { t: Tournament; onDetail: () => void }
   return (
     <div
       className={`rounded-2xl overflow-hidden border flex flex-col transition-all tournament-card-bg ${
-        finished ? 'border-white/15 opacity-65' : 'border-white/10 hover:border-[#58B3AD]/30 hover:shadow-lg hover:shadow-[#58B3AD]/10'
+        finished ? 'border-black/15 opacity-65' : 'border-black/10 hover:border-[#58B0B1]/30 hover:shadow-lg hover:shadow-[#58B0B1]/10'
       }`}
     >
       {/* Wide landscape banner — matches reference aspect ratio */}
@@ -32,21 +32,21 @@ function TournamentCard({ t, onDetail }: { t: Tournament; onDetail: () => void }
 
         {/* Badge — top left */}
         <span
-          className="absolute top-2.5 left-3 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full dyn-bg" style={{ '--dyn-bg': t.badgeColor } as React.CSSProperties}
+          className="absolute top-2.5 left-3 text-black text-[10px] font-bold px-2.5 py-0.5 rounded-full dyn-bg" style={{ '--dyn-bg': t.badgeColor } as React.CSSProperties}
         >
           {t.badge}
         </span>
 
         {/* Participants — top right */}
         <div className="absolute top-2.5 right-3 flex items-center gap-1 bg-black/55 backdrop-blur-sm rounded-full px-2 py-0.5">
-          <Users className="w-3 h-3 text-gray-300" />
-          <span className="text-white text-[10px] font-semibold">{t.participants.toLocaleString('pt-BR')}</span>
+          <Users className="w-3 h-3 text-gray-700" />
+          <span className="text-black text-[10px] font-semibold">{t.participants.toLocaleString('pt-BR')}</span>
         </div>
 
         {/* Name + provider overlaid at bottom of image */}
         <div className="absolute bottom-0 left-0 right-0 px-3 pb-2.5">
-          <p className="text-gray-400 text-[9px] uppercase tracking-widest leading-none mb-0.5">{t.provider}</p>
-          <h3 className="text-white font-bold text-sm leading-snug">{t.name}</h3>
+          <p className="text-gray-600 text-[9px] uppercase tracking-widest leading-none mb-0.5">{t.provider}</p>
+          <h3 className="text-black font-bold text-sm leading-snug">{t.name}</h3>
         </div>
       </div>
 
@@ -56,15 +56,15 @@ function TournamentCard({ t, onDetail }: { t: Tournament; onDetail: () => void }
         {/* Total prize */}
         <div>
           <p className="text-gray-500 text-[9px] uppercase tracking-wider leading-none mb-0.5">Prêmio Total</p>
-          <p className="font-extrabold text-base leading-none text-[#58B3AD]">{t.totalPrize}</p>
+          <p className="font-extrabold text-base leading-none text-[#58B0B1]">{t.totalPrize}</p>
         </div>
 
         {/* Prize chips row */}
         <div className="flex gap-1.5">
           {t.prizes.map((p, i) => (
-            <div key={i} className="flex-1 flex items-center gap-1 bg-white/4 border border-white/6 rounded-xl px-2 py-1.5">
+            <div key={i} className="flex-1 flex items-center gap-1 bg-black/4 border border-black/6 rounded-xl px-2 py-1.5">
               <span className="text-sm leading-none">{placeLabels[i]}</span>
-              <span className="text-white text-[10px] font-bold truncate">{p.amount}</span>
+              <span className="text-black text-[10px] font-bold truncate">{p.amount}</span>
             </div>
           ))}
         </div>
@@ -73,14 +73,14 @@ function TournamentCard({ t, onDetail }: { t: Tournament; onDetail: () => void }
         {finished ? (
           <button
             onClick={onDetail}
-            className="w-full py-2 rounded-xl text-xs font-bold text-gray-400 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center gap-1.5"
+            className="w-full py-2 rounded-xl text-xs font-bold text-gray-600 border border-black/10 bg-black/5 hover:bg-black/10 transition-colors flex items-center justify-center gap-1.5"
           >
             <CheckCircle2 className="w-3.5 h-3.5" /> Ver Resultado
           </button>
         ) : (
           <button
             onClick={onDetail}
-            className="w-full py-2 rounded-xl text-xs font-bold text-black hover:opacity-90 transition-opacity bg-[#58B3AD]"
+            className="w-full py-2 rounded-xl text-xs font-bold text-white hover:opacity-90 transition-opacity bg-[#58B0B1]"
           >
             Saiba mais
           </button>
@@ -123,21 +123,21 @@ export function TournamentsPage({ onGoHome, onNavigateStatic, onSelectTournament
     <div className="min-h-screen flex flex-col">
 
       {/* Page hero strip — matches MyAccountPage / ReferPage */}
-      <div className="bg-gradient-to-r from-[#163242] via-[#1F475F] to-[#163242] border-b border-white/15">
+      <div className="bg-gradient-to-r from-[#E3E3E3] via-[#D5D5D5] to-[#E3E3E3] border-b border-black/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <button
             onClick={onGoHome}
-            className="flex items-center gap-1.5 text-gray-400 hover:text-white text-xs mb-4 transition-colors"
+            className="flex items-center gap-1.5 text-gray-600 hover:text-black text-xs mb-4 transition-colors"
           >
             <ChevronLeft className="w-3.5 h-3.5" /> Início
           </button>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#58B3AD22]">
-              <Trophy className="w-5 h-5 text-[#58B3AD]" />
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#58B0B122]">
+              <Trophy className="w-5 h-5 text-[#58B0B1]" />
             </div>
             <div>
-              <h1 className="text-white font-bold text-xl leading-tight">Torneios</h1>
-              <p className="text-gray-400 text-xs mt-0.5">
+              <h1 className="text-black font-bold text-xl leading-tight">Torneios</h1>
+              <p className="text-gray-600 text-xs mt-0.5">
                 Participe de torneios diários, semanais e especiais e concorra a milhares de reais em prêmios.
               </p>
             </div>
@@ -146,7 +146,7 @@ export function TournamentsPage({ onGoHome, onNavigateStatic, onSelectTournament
       </div>
 
       {/* Sticky filter tabs */}
-      <div className="sticky top-0 z-30 border-b border-white/15">
+      <div className="sticky top-0 z-30 border-b border-black/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div ref={filterScrollRef} className="flex gap-2 py-3 sm:pt-4 sm:pb-3 overflow-x-auto [scrollbar-width:none]">
             {FILTERS.map(f => (
@@ -154,11 +154,11 @@ export function TournamentsPage({ onGoHome, onNavigateStatic, onSelectTournament
                 key={f.key}
                 data-nav-id={f.key}
                 onClick={() => setFilter(f.key)}
-                style={{ '--dyn-bg': filter === f.key ? '#58B3AD' : undefined } as React.CSSProperties}
+                style={{ '--dyn-bg': filter === f.key ? '#58B0B1' : undefined } as React.CSSProperties}
                 className={`shrink-0 dyn-bg px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
                   filter === f.key
                     ? 'text-black'
-                    : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border border-white/[0.08]'
+                    : 'bg-black/5 text-gray-600 hover:text-black hover:bg-black/10 border border-black/[0.08]'
                 }`}
               >
                 {f.label}
@@ -176,10 +176,10 @@ export function TournamentsPage({ onGoHome, onNavigateStatic, onSelectTournament
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center gap-2">
-                  <Medal className="w-5 h-5 text-[#58B3AD]" />
-                  <h2 className="text-white font-bold text-lg">Disponíveis</h2>
+                  <Medal className="w-5 h-5 text-[#58B0B1]" />
+                  <h2 className="text-black font-bold text-lg">Disponíveis</h2>
                 </div>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#58B3AD22] text-[#58B3AD]">
+                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#58B0B122] text-[#58B0B1]">
                   {available.length}
                 </span>
               </div>
@@ -197,9 +197,9 @@ export function TournamentsPage({ onGoHome, onNavigateStatic, onSelectTournament
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-gray-500" />
-                  <h2 className="text-white font-bold text-lg">Finalizados</h2>
+                  <h2 className="text-black font-bold text-lg">Finalizados</h2>
                 </div>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-white/5 text-gray-400">
+                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-black/5 text-gray-600">
                   {finished.length}
                 </span>
               </div>
@@ -214,7 +214,7 @@ export function TournamentsPage({ onGoHome, onNavigateStatic, onSelectTournament
           {/* Empty state */}
           {((filter === 'disponiveis' && available.length === 0) || (filter === 'finalizados' && finished.length === 0)) && (
             <div className="text-center py-20">
-              <Trophy className="w-12 h-12 text-gray-700 mx-auto mb-4" />
+              <Trophy className="w-12 h-12 text-gray-300 mx-auto mb-4" />
               <p className="text-gray-500 text-sm">Nenhum torneio encontrado nesta categoria.</p>
             </div>
           )}

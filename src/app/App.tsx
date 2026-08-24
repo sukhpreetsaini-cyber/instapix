@@ -31,7 +31,7 @@ import { RegisterPage } from './pages/RegisterPage';
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage';
 import { NotificationsPage } from './pages/NotificationsPage';
 import { ProvidersSection } from './components/ProvidersSection';
-import { Star, Flame, Clock, Sparkles, Search } from 'lucide-react';
+import { Star, Flame, Clock, Sparkles, Search, X } from 'lucide-react';
 
 type Page = PageType | 'home' | 'promocoes' | 'minha-conta' | 'bonus' | 'refer' | 'torneios' | 'recompensas' | 'login' | 'cadastro' | 'esqueci-senha' | 'notificacoes';
 
@@ -109,6 +109,8 @@ const tableGames = [
 
 export default function App() {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [showWinners, setShowWinners] = useState(true);
+  const [mobileWinnersOpen, setMobileWinnersOpen] = useState(false);
   const [activePage, setActivePage] = useState<Page>('home');
   const [activePromoId, setActivePromoId] = useState<string | null>(null);
   const [activeStaticSlug, setActiveStaticSlug] = useState<string | null>(null);
@@ -116,8 +118,6 @@ export default function App() {
   const [selectedTournamentId, setSelectedTournamentId] = useState<string | null>(null);
   const [depositOpen, setDepositOpen] = useState(false);
   const [withdrawOpen, setWithdrawOpen] = useState(false);
-  const [showWinners, setShowWinners] = useState(true);
-  const [mobileWinnersOpen, setMobileWinnersOpen] = useState(false);
   const [authModal, setAuthModal] = useState<'login' | 'cadastro' | 'esqueci-senha' | null>(null);
 
   const ACCOUNT_SECTIONS = ['minha-conta','carteira','apostas','limites','pausas-suspensoes','seguranca','contas-bancarias'];
@@ -160,7 +160,7 @@ export default function App() {
   const winnersVisibleHere = showWinners && activePage !== 'promocoes' && !activeStaticSlug && activePage !== 'minha-conta';
 
   return (
-    <div className="min-h-screen bg-[#0C181F] flex flex-col">
+    <div className="min-h-screen bg-[#F5F5F5] flex flex-col">
       <Header
         onToggleSidebar={() => setMobileSidebarOpen(!mobileSidebarOpen)}
         onNavigate={navigate}
@@ -169,19 +169,28 @@ export default function App() {
         showWinners={showWinners}
         onToggleWinners={() => setShowWinners(!showWinners)}
         onOpenMobileWinners={() => setMobileWinnersOpen(true)}
+        mobileWinnersOpen={mobileWinnersOpen}
       />
 
       <div className="flex-1 pt-[82px]">
         {/* Mobile Sidebar Overlay */}
         {mobileSidebarOpen && (
-          <div
-            className="fixed inset-0 bg-black/50 z-[60] lg:hidden"
-            onClick={() => setMobileSidebarOpen(false)}
-          />
+          <>
+            <div
+              className="fixed inset-0 bg-black/50 z-[60] lg:hidden"
+              onClick={() => setMobileSidebarOpen(false)}
+            />
+            <button
+              onClick={() => setMobileSidebarOpen(false)}
+              className="lg:hidden fixed top-4 right-4 z-[71] w-9 h-9 rounded-full bg-white shadow-md border border-black/10 flex items-center justify-center hover:bg-black/5 transition-colors"
+            >
+              <X className="w-4 h-4 text-black" />
+            </button>
+          </>
         )}
 
         {/* Mobile Sidebar */}
-        <div className={`lg:hidden fixed top-[82px] left-0 h-[calc(100vh-82px)] z-[70] transition-transform duration-300 ${mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className={`lg:hidden fixed top-0 left-0 h-screen z-[70] transition-transform duration-300 ${mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
           <div className="h-full">
             <Sidebar
               activePage={activePage}
@@ -201,7 +210,7 @@ export default function App() {
         </div>
 
         <main
-          className={`page-glow-bg lg:ml-64 ${winnersVisibleHere ? 'xl:mr-80' : ''} overflow-y-auto min-h-screen transition-all duration-300 pb-24 lg:pb-0`}
+          className={`page-glow-bg lg:ml-64 ${winnersVisibleHere ? 'xl:mr-80' : ''} overflow-y-auto min-h-screen transition-all duration-300 pb-20 lg:pb-0`}
         >
           {activePage === 'notificacoes' ? (
             <NotificationsPage onNavigateStatic={openStaticPage} />
@@ -249,54 +258,63 @@ export default function App() {
             <PromotionsPage onOpenPromo={openPromo} onNavigateStatic={openStaticPage} />
           ) : activePage === 'home' ? (
             <>
-              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-4">
+              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col">
                 {/* <Categories /> — hidden per request */}
 
-                <PromoCards />
+                {/* Desktop: 3 small banners, then category bar + search, then the main banner */}
+                <div className="order-4 lg:order-1">
+                  <QuickPlayRow onNavigate={navigate} />
+                </div>
 
-                <HomeCategoryBar onNavigate={navigate} />
+                <div className="order-2 lg:order-2">
+                  <HomeCategoryBar onNavigate={navigate} />
+                </div>
+
+                <div className="order-1 lg:order-3">
+                  <PromoCards />
+                </div>
 
                 {/* Search bar — mobile only, desktop has one in the category bar */}
-                <div className="relative mt-3 mb-5 lg:hidden">
+                <div className="order-3 relative mt-3 mb-5 lg:hidden">
                   <input
                     type="text"
                     placeholder="Buscar jogos, categorias..."
-                    className="w-full bg-white/5 text-white placeholder-gray-400 pl-4 pr-10 py-2.5 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#58B3AD] border border-white/15"
+                    className="w-full bg-white text-black placeholder-gray-600 pl-4 pr-10 py-2.5 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#58B0B1] border border-black/15"
                   />
-                  <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
                 </div>
 
-                <QuickPlayRow onNavigate={navigate} />
-
-                <BigGameRow
-                  title="Jogos em Destaque"
-                  icon={<Star className="w-4 h-4 text-white fill-white" />}
-                  games={featuredGames}
-                />
-                <SmallGameRow
-                  title="Mais Populares"
-                  icon={<Flame className="w-4 h-4 text-white fill-white" />}
-                  games={popularGames}
-                />
-                <SmallGameRow
-                  title="Slots em Alta"
-                  icon={<Sparkles className="w-4 h-4 text-white fill-white" />}
-                  games={slotsGames}
-                />
-                <BigGameRow
-                  title="Cassino Ao Vivo"
-                  icon={<Star className="w-4 h-4 text-white fill-white" />}
-                  games={liveGames}
-                  liveTag
-                />
-                <SmallGameRow
-                  title="Jogos de Mesa"
-                  icon={<Clock className="w-4 h-4 text-white fill-white" />}
-                  games={tableGames}
-                />
-                <ProvidersSection />
-                <PromotionsSection onOpenPromo={(id) => { navigate('promocoes'); openPromo(id); }} onSeeAll={() => navigate('promocoes')} />
-                <SEOContent />
+                <div className="order-5 lg:order-4">
+                  <BigGameRow
+                    title="Jogos em Destaque"
+                    icon={<Star className="w-4 h-4 text-black fill-white" />}
+                    games={featuredGames}
+                  />
+                  <SmallGameRow
+                    title="Mais Populares"
+                    icon={<Flame className="w-4 h-4 text-black fill-white" />}
+                    games={popularGames}
+                  />
+                  <SmallGameRow
+                    title="Slots em Alta"
+                    icon={<Sparkles className="w-4 h-4 text-black fill-white" />}
+                    games={slotsGames}
+                  />
+                  <BigGameRow
+                    title="Cassino Ao Vivo"
+                    icon={<Star className="w-4 h-4 text-black fill-white" />}
+                    games={liveGames}
+                    liveTag
+                  />
+                  <SmallGameRow
+                    title="Jogos de Mesa"
+                    icon={<Clock className="w-4 h-4 text-black fill-white" />}
+                    games={tableGames}
+                  />
+                  <ProvidersSection />
+                  <PromotionsSection onOpenPromo={(id) => { navigate('promocoes'); openPromo(id); }} onSeeAll={() => navigate('promocoes')} />
+                  <SEOContent />
+                </div>
               </div>
               <Footer onNavigate={openStaticPage} />
             </>
@@ -308,7 +326,7 @@ export default function App() {
         {/* Desktop Recent Winners rail */}
         {winnersVisibleHere && (
           <div className="hidden xl:block">
-            <RecentWinners />
+            <RecentWinners onClose={() => setShowWinners(false)} />
           </div>
         )}
 
@@ -319,15 +337,18 @@ export default function App() {
               className="fixed inset-0 bg-black/50 z-[60] xl:hidden"
               onClick={() => setMobileWinnersOpen(false)}
             />
-            <div className="xl:hidden fixed top-[82px] right-0 z-[70]">
-              <RecentWinners onClose={() => setMobileWinnersOpen(false)} />
+            <div className="xl:hidden fixed top-0 right-0 z-[70]">
+              <RecentWinners onClose={() => setMobileWinnersOpen(false)} fullHeight />
             </div>
           </>
         )}
-
       </div>
 
-      <MobileBottomBar activePage={activePage} onNavigate={navigate} />
+      <MobileBottomBar
+        activePage={activePage}
+        onNavigate={navigate}
+        onToggleSidebar={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+      />
 
       {depositOpen && <DepositModal onClose={() => setDepositOpen(false)} />}
       {withdrawOpen && <WithdrawModal onClose={() => setWithdrawOpen(false)} />}

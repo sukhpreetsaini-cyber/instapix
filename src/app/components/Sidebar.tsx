@@ -1,6 +1,7 @@
 import { Instagram, Youtube, LogIn, Headphones } from 'lucide-react';
-import { EsportsIcon, JogosIcon, CassinoIcon, SlotsIcon, AviatorIcon, BonusIcon, HomeIcon, PromocoesIcon, RecompensasIcon, ReferIcon } from './icons';
-import logoImage from '../../imports/instapix-logo-full-green.svg';
+import { LineHomeIcon, LineBonusIcon, LinePromocoesIcon, LineReferIcon } from './icons';
+import { MobileAviatorIcon, MobileJogosIcon, MobileCassinoIcon, MobileSlotsIcon } from './MobileBottomBar';
+import logoImage from '../../imports/instapix-logo-full.svg';
 import bonusBannerImage from '../../imports/sidebar-bonus-banner.png';
 import { ProfileDropdown } from './ProfileDropdown';
 import type { PageType } from '../pages/GameCategoryPage';
@@ -8,16 +9,14 @@ import type { PageType } from '../pages/GameCategoryPage';
 type Page = PageType | 'home' | 'promocoes' | 'bonus' | 'refer' | 'torneios' | 'recompensas' | 'login';
 
 const menuItems: { icon: React.ElementType; label: string; page?: Page }[] = [
-  { icon: HomeIcon, label: 'Início', page: 'home' },
-  { icon: JogosIcon, label: 'Jogos', page: 'jogos' },
-  { icon: SlotsIcon, label: 'Slots', page: 'slots' },
-  { icon: CassinoIcon, label: 'Cassino', page: 'cassino' },
-  { icon: AviatorIcon, label: 'Aviator' },
-  { icon: EsportsIcon, label: 'Esportes' },
-  { icon: PromocoesIcon, label: 'Promoções', page: 'promocoes' as Page },
-  { icon: RecompensasIcon,  label: 'Recompensas',    page: 'recompensas' as Page },
-  { icon: BonusIcon,   label: 'Bônus',          page: 'bonus' as Page },
-  { icon: ReferIcon, label: 'Refer',          page: 'refer' as Page },
+  { icon: LineHomeIcon, label: 'Início', page: 'home' },
+  { icon: MobileJogosIcon, label: 'Jogos', page: 'jogos' },
+  { icon: MobileSlotsIcon, label: 'Slots', page: 'slots' },
+  { icon: MobileCassinoIcon, label: 'Cassino', page: 'cassino' },
+  { icon: MobileAviatorIcon, label: 'Aviator' },
+  { icon: LinePromocoesIcon, label: 'Promoções', page: 'promocoes' as Page },
+  { icon: LineBonusIcon,   label: 'Bônus',          page: 'bonus' as Page },
+  { icon: LineReferIcon, label: 'Refer',          page: 'refer' as Page },
   // TODO: temporary link for testing the Login page — remove once real auth entry points exist
   { icon: LogIn, label: 'Login', page: 'login' as Page },
 ];
@@ -30,7 +29,7 @@ interface SidebarProps {
 
 export function Sidebar({ activePage = 'home', onNavigate, onNavigateStatic }: SidebarProps) {
   return (
-    <aside className="w-64 h-full bg-[#0C181F] border-r border-white/8 flex flex-col">
+    <aside className="w-64 h-full bg-[#F5F5F5] border-r border-black/8 flex flex-col">
       {/* Logo — clickable to go home. Hidden on mobile (mobile drawer shows its own header via App shell). */}
       <button
         onClick={() => onNavigate?.('home')}
@@ -43,7 +42,7 @@ export function Sidebar({ activePage = 'home', onNavigate, onNavigateStatic }: S
       <div className="px-4 pt-4 lg:pt-0 pb-4 flex-shrink-0">
         <button
           onClick={() => onNavigate?.('bonus')}
-          className="w-full rounded-xl overflow-hidden border border-white/10 hover:opacity-90 transition-opacity"
+          className="w-full rounded-xl overflow-hidden border border-black/10 hover:opacity-90 transition-opacity"
         >
           <img src={bonusBannerImage} alt="Ganhe R$50 de bônus" className="w-full h-auto object-cover block" />
         </button>
@@ -64,17 +63,17 @@ export function Sidebar({ activePage = 'home', onNavigate, onNavigateStatic }: S
               onClick={() => item.page && onNavigate?.(item.page)}
               title={item.label}
               className={`flex items-center gap-3 py-2.5 px-3 w-full rounded-xl transition-colors text-left ${
-                isActive ? 'bg-[#16323F] border border-[#2A5A6E]' : 'hover:bg-white/5'
+                isActive ? 'bg-[#E3E3E3] border border-[#C5C5C5]' : 'hover:bg-black/5'
               }`}
             >
               <span
-                className={`flex items-center justify-center w-8 h-8 rounded-lg flex-shrink-0 ${
-                  isActive ? 'bg-white/10' : ''
+                className={`flex items-center justify-center w-8 h-8 rounded-lg flex-shrink-0 border ${
+                  isActive ? 'bg-[#58B0B1]/10 border-[#58B0B1]/30' : 'bg-black/5 border-black/8'
                 }`}
               >
-                <item.icon className={`${item.label === 'Jogos' || item.label === 'Slots' ? 'w-6 h-6' : 'w-[18px] h-[18px]'} ${isActive ? 'text-[#58B3AD]' : 'text-gray-400'}`} />
+                <item.icon className={`w-[18px] h-[18px] ${isActive ? 'text-[#58B0B1]' : 'text-gray-600'}`} />
               </span>
-              <span className={`text-[13px] leading-tight ${isActive ? 'text-[#58B3AD] font-semibold' : 'text-gray-400'}`}>
+              <span className={`text-[13px] leading-tight ${isActive ? 'text-[#58B0B1] font-semibold' : 'text-gray-600'}`}>
                 {item.label}
               </span>
             </button>
@@ -83,15 +82,15 @@ export function Sidebar({ activePage = 'home', onNavigate, onNavigateStatic }: S
       </nav>
 
       {/* Bottom social + support icons */}
-      <div className="px-5 py-4 flex-shrink-0 border-t border-white/8 mt-2">
+      <div className="px-5 py-4 flex-shrink-0 border-t border-black/8 mt-2">
         <div className="flex gap-2">
-          <a href="#" className="bg-white/5 p-2 rounded-xl hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
+          <a href="#" className="bg-black/5 p-2 rounded-xl hover:bg-black/10 border border-black/10 text-gray-600 hover:text-black flex items-center justify-center transition-colors">
             <Instagram className="w-5 h-5" />
           </a>
-          <a href="#" className="bg-white/5 p-2 rounded-xl hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
+          <a href="#" className="bg-black/5 p-2 rounded-xl hover:bg-black/10 border border-black/10 text-gray-600 hover:text-black flex items-center justify-center transition-colors">
             <Youtube className="w-5 h-5" />
           </a>
-          <button title="Suporte 24/7" className="bg-white/5 p-2 rounded-xl hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
+          <button title="Suporte 24/7" className="bg-black/5 p-2 rounded-xl hover:bg-black/10 border border-black/10 text-gray-600 hover:text-black flex items-center justify-center transition-colors">
             <Headphones className="w-5 h-5" />
           </button>
         </div>

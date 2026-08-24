@@ -12,9 +12,9 @@ const FAKE_QR =
   'data:image/svg+xml;utf8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" shape-rendering="crispEdges">
     ${Array.from({length:100},(_,i)=>{const x=i%10,y=Math.floor(i/10),on=Math.random()>.45;return on?`<rect x="${x}" y="${y}" width="1" height="1" fill="#fff"/>`:''}).join('')}
-    <rect x="0" y="0" width="3" height="3" fill="#fff"/><rect x="1" y="1" width="1" height="1" fill="#1E9F96"/>
-    <rect x="7" y="0" width="3" height="3" fill="#fff"/><rect x="8" y="1" width="1" height="1" fill="#1E9F96"/>
-    <rect x="0" y="7" width="3" height="3" fill="#fff"/><rect x="1" y="8" width="1" height="1" fill="#1E9F96"/>
+    <rect x="0" y="0" width="3" height="3" fill="#fff"/><rect x="1" y="1" width="1" height="1" fill="#58B0B1"/>
+    <rect x="7" y="0" width="3" height="3" fill="#fff"/><rect x="8" y="1" width="1" height="1" fill="#58B0B1"/>
+    <rect x="0" y="7" width="3" height="3" fill="#fff"/><rect x="1" y="8" width="1" height="1" fill="#58B0B1"/>
   </svg>`);
 
 export function DepositModal({ onClose }: Props) {
@@ -52,16 +52,16 @@ export function DepositModal({ onClose }: Props) {
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 modal-overlay-75"
       onClick={e => e.target === e.currentTarget && onClose()}
     >
-      <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-white/15 modal-card-glow">
+      <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-black/15 modal-card-glow">
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.08]">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-black/[0.08]">
           <div>
-            <h2 className="text-white font-bold text-lg">Depositar via PIX</h2>
-            <p className="text-gray-400 text-xs mt-0.5">Aprovação instantânea · sem taxas</p>
+            <h2 className="text-[#58B0B1] font-bold text-lg">Depositar via PIX</h2>
+            <p className="text-gray-600 text-xs mt-0.5">Aprovação instantânea · sem taxas</p>
           </div>
-          <button onClick={onClose} className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 flex items-center justify-center transition-colors">
-            <X className="w-4 h-4 text-gray-400" />
+          <button onClick={onClose} className="w-8 h-8 rounded-full bg-black/5 hover:bg-black/15 flex items-center justify-center transition-colors">
+            <X className="w-4 h-4 text-gray-600" />
           </button>
         </div>
 
@@ -70,9 +70,9 @@ export function DepositModal({ onClose }: Props) {
             <>
               {/* Amount input */}
               <div className="mb-5">
-                <label className="text-gray-400 text-xs mb-2 block">Digite o valor (mínimo R$ 20)</label>
+                <label className="text-gray-600 text-xs mb-2 block">Digite o valor (mínimo R$ 20)</label>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium">R$</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 text-sm font-medium">R$</span>
                   <input
                     ref={inputRef}
                     type="number"
@@ -81,7 +81,7 @@ export function DepositModal({ onClose }: Props) {
                     placeholder="0,00"
                     value={amount}
                     onChange={e => { setAmount(e.target.value); setSelected(null); }}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-4 text-white text-2xl font-bold focus:outline-none focus:border-[#1E9F96] transition-colors placeholder-white/20 text-center"
+                    className="w-full bg-white border border-black/10 rounded-xl pl-10 pr-4 py-4 text-black text-2xl font-bold focus:outline-none focus:border-[#58B0B1] transition-colors placeholder-black/20 text-center"
                   />
                 </div>
               </div>
@@ -93,7 +93,7 @@ export function DepositModal({ onClose }: Props) {
                   <button
                     key={v}
                     onClick={() => selectPreset(v)}
-                    className="py-3 rounded-xl text-sm font-bold border transition-all dyn-bg dyn-border dyn-text" style={{ '--dyn-bg': selected === v ? 'rgba(0,196,77,0.15)' : 'rgba(255,255,255,0.04)', '--dyn-border': selected === v ? '#1E9F96' : 'rgba(255,255,255,0.08)', '--dyn-text': selected === v ? '#1E9F96' : '#9ca3af' } as React.CSSProperties}
+                    className="py-3 rounded-xl text-sm font-bold border transition-all dyn-bg dyn-border dyn-text" style={{ '--dyn-bg': selected === v ? 'rgba(0,196,77,0.15)' : 'rgba(0,0,0,0.04)', '--dyn-border': selected === v ? '#58B0B1' : 'rgba(0,0,0,0.08)', '--dyn-text': selected === v ? '#58B0B1' : '#5D5D5D' } as React.CSSProperties}
                   >
                     R$ {v}
                   </button>
@@ -102,9 +102,9 @@ export function DepositModal({ onClose }: Props) {
 
               {/* Bonus hint */}
               {numericAmount >= 20 && (
-                <div className="mb-5 rounded-xl p-3 flex items-center gap-3 border border-[#58B3AD]/20 bg-[#58B3AD]/5">
-                  <span className="text-[#58B3AD] text-lg">🎁</span>
-                  <p className="text-[#58B3AD] text-xs">
+                <div className="mb-5 rounded-xl p-3 flex items-center gap-3 border border-[#58B0B1]/20 bg-[#58B0B1]/5">
+                  <span className="text-[#58B0B1] text-lg">🎁</span>
+                  <p className="text-[#58B0B1] text-xs">
                     Primeiro depósito? Ganhe <strong>100% de bônus</strong> até R$500!
                   </p>
                 </div>
@@ -114,14 +114,16 @@ export function DepositModal({ onClose }: Props) {
               <button
                 onClick={handleGenerate}
                 disabled={!canProceed}
-                className="w-full py-4 rounded-xl font-bold text-white text-base flex items-center justify-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed dyn-bg" style={{ '--dyn-bg': canProceed ? '#1E9F96' : '#374151' } as React.CSSProperties}
+                className={`w-full py-4 rounded-xl font-bold text-white text-base flex items-center justify-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
+                  canProceed ? 'bg-[#58B0B1]' : 'bg-[#BFBFBF]'
+                }`}
               >
                 <QrCode className="w-5 h-5" />
                 Gerar QR Code PIX
                 <ChevronRight className="w-4 h-4" />
               </button>
 
-              <p className="text-gray-400 text-[11px] text-center mt-4">
+              <p className="text-gray-600 text-[11px] text-center mt-4">
                 Pagamentos processados com segurança · SSL 256-bit
               </p>
             </>
@@ -129,21 +131,21 @@ export function DepositModal({ onClose }: Props) {
             <>
               {/* QR step */}
               <div className="text-center mb-5">
-                <p className="text-white text-sm font-semibold mb-1">Escaneie o QR Code</p>
-                <p className="text-gray-400 text-xs">Abra seu banco e aponte a câmera</p>
+                <p className="text-black text-sm font-semibold mb-1">Escaneie o QR Code</p>
+                <p className="text-gray-600 text-xs">Abra seu banco e aponte a câmera</p>
               </div>
 
               {/* QR Code */}
               <div className="flex justify-center mb-5">
-                <div className="rounded-2xl p-4 border border-white/10 bg-white">
+                <div className="rounded-2xl p-4 border border-black/10 bg-white">
                   <img src={FAKE_QR} alt="QR PIX" className="w-44 h-44 qr-pixelated" />
                 </div>
               </div>
 
               {/* Amount badge */}
               <div className="flex justify-center mb-5">
-                <div className="bg-[#1E9F96]/10 border border-[#1E9F96]/30 rounded-full px-5 py-1.5">
-                  <span className="text-[#1E9F96] font-bold text-lg">R$ {parseFloat(amount).toFixed(2).replace('.', ',')}</span>
+                <div className="bg-[#58B0B1]/10 border border-[#58B0B1]/30 rounded-full px-5 py-1.5">
+                  <span className="text-[#58B0B1] font-bold text-lg">R$ {parseFloat(amount).toFixed(2).replace('.', ',')}</span>
                 </div>
               </div>
 
@@ -152,31 +154,31 @@ export function DepositModal({ onClose }: Props) {
                 <p className="text-gray-500 text-xs mb-2 text-center">ou copie a chave PIX</p>
                 <button
                   onClick={copyKey}
-                  className="w-full flex items-center justify-between gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group"
+                  className="w-full flex items-center justify-between gap-3 bg-black/5 border border-black/10 rounded-xl px-4 py-3 hover:bg-black/10 transition-colors group"
                 >
-                  <span className="text-gray-300 text-sm truncate font-mono">{FAKE_PIX_KEY}</span>
+                  <span className="text-gray-700 text-sm truncate font-mono">{FAKE_PIX_KEY}</span>
                   {copied
-                    ? <CheckCheck className="w-4 h-4 text-[#1E9F96] flex-shrink-0" />
-                    : <Copy className="w-4 h-4 text-gray-500 group-hover:text-white flex-shrink-0 transition-colors" />}
+                    ? <CheckCheck className="w-4 h-4 text-[#58B0B1] flex-shrink-0" />
+                    : <Copy className="w-4 h-4 text-gray-500 group-hover:text-black flex-shrink-0 transition-colors" />}
                 </button>
               </div>
 
               <div className="flex gap-3">
                 <button
                   onClick={() => setStep('input')}
-                  className="flex-1 py-3 rounded-xl text-sm font-semibold text-gray-300 bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+                  className="flex-1 py-3 rounded-xl text-sm font-semibold text-gray-700 bg-black/5 hover:bg-black/10 border border-black/10 transition-colors"
                 >
                   Alterar valor
                 </button>
                 <button
                   onClick={onClose}
-                  className="flex-1 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-90 transition-opacity bg-[#1E9F96]"
+                  className="flex-1 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-90 transition-opacity bg-[#58B0B1]"
                 >
                   Já paguei ✓
                 </button>
               </div>
 
-              <p className="text-gray-400 text-[11px] text-center mt-4">
+              <p className="text-gray-600 text-[11px] text-center mt-4">
                 QR Code válido por 30 minutos · crédito em segundos
               </p>
             </>

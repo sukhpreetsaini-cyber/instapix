@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
-import logoImage from '../../imports/instapix-icon-green.svg';
+import logoImage from '../../imports/instapix-logo-icon.svg';
 
 interface Props {
   children: ReactNode;
@@ -31,7 +31,7 @@ export function AuthLayout({ children, onGoHome, onClose }: Props) {
         >
           <span className="mobile-nav-ring absolute inset-0 rounded-full animate-[spin_4s_linear_infinite]" />
           <span className="mobile-nav-glow absolute inset-0 rounded-full animate-pulse" />
-          <span className="relative w-[67px] h-[67px] rounded-full bg-[#1F475F] border-2 border-[#0B1921] shadow-lg flex items-center justify-center overflow-hidden">
+          <span className="relative w-[67px] h-[67px] rounded-full bg-[#D5D5D5] border-2 border-[#F5F5F5] shadow-lg flex items-center justify-center overflow-hidden">
             <img src={logoImage} alt="INSTAPIX" className="w-[52px] h-[52px] object-contain" />
           </span>
         </button>
@@ -39,14 +39,14 @@ export function AuthLayout({ children, onGoHome, onClose }: Props) {
         {onClose && (
           <button
             onClick={onClose}
-            className="absolute -top-[18px] -right-[18px] z-20 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center transition-colors"
+            className="absolute -top-[18px] -right-[18px] z-20 w-9 h-9 rounded-full bg-black/10 hover:bg-black/20 border border-black/15 flex items-center justify-center transition-colors"
           >
-            <X className="w-4 h-4 text-white" />
+            <X className="w-4 h-4 text-black" />
           </button>
         )}
 
         <div
-          className="w-full rounded-2xl overflow-hidden shadow-2xl border border-white/15 pt-9 auth-card-glow"
+          className="w-full rounded-2xl overflow-hidden shadow-2xl border border-black/15 pt-9 auth-card-glow"
         >
           {children}
         </div>

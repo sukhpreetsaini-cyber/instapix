@@ -1,5 +1,3 @@
-import logoImage from '../../imports/instapix-icon-green.svg';
-import { EsportsIcon, JogosIcon, CassinoIcon, SlotsIcon } from './icons';
 import type { PageType } from '../pages/GameCategoryPage';
 
 type Page = PageType | 'home';
@@ -7,65 +5,121 @@ type Page = PageType | 'home';
 interface Props {
   activePage: Page;
   onNavigate: (page: Page) => void;
+  onToggleSidebar?: () => void;
+}
+
+export function MobileAviatorIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 512 512.002" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="m512 47.117188c0-25.980469-21.136719-47.117188-47.132812-47.117188h-.003907c-24.726562 0-47.972656 9.628906-65.453125 27.113281l-83.839844 83.839844-208.613281-49.085937c-39.792969-9.363282-81.761719 7.195312-104.4375 41.207031-1.640625 2.464843-2.519531 5.359375-2.519531 8.320312 0 5.519531 3.03125 10.597657 7.890625 13.210938l191.113281 102.910156-93.816406 93.816406h-58.070312c-25.980469 0-47.117188 21.136719-47.117188 47.136719 0 5.265625 2.765625 10.148438 7.285156 12.859375l77.117188 46.273437 46.269531 77.117188c2.710937 4.515625 7.59375 7.28125 12.863281 7.28125 12.597656 0 24.433594-4.90625 33.324219-13.804688 8.90625-8.902343 13.808594-20.738281 13.808594-33.328124v-58.050782l93.816406-93.820312 102.910156 191.117187c2.617188 4.859375 7.695313 7.890625 13.210938 7.890625 2.960937 0 5.855469-.878906 8.320312-2.523437 34.011719-22.671875 50.570313-64.640625 41.210938-104.433594l-49.085938-208.613281 83.835938-83.839844c17.484375-17.488281 27.113281-40.734375 27.113281-65.476562zm-473.53125 59.882812c16.421875-14.820312 39.503906-21.132812 61.617188-15.933594l190.535156 44.832032-69.46875 69.46875zm382.464844 304.917969c5.203125 22.113281-1.113282 45.195312-15.929688 61.617187l-98.371094-182.6875 69.46875-69.46875zm42.742187-320.539063-298.613281 298.613282c-2.816406 2.816406-4.394531 6.628906-4.394531 10.609374v64.265626c0 4.574218-1.78125 8.875-5.023438 12.117187-1.375 1.375-2.941406 2.488281-4.640625 3.3125l-42.808594-71.347656c-1.265624-2.109375-3.03125-3.878907-5.144531-5.144531l-71.339843-42.804688c2.773437-5.714844 8.636718-9.664062 15.40625-9.664062h64.285156c3.976562 0 7.792968-1.582032 10.605468-4.394532l298.613282-298.617187c11.816406-11.816407 27.527344-18.324219 44.242187-18.324219h.019531c9.4375 0 17.117188 7.679688 17.117188 17.132812 0 16.714844-6.507812 32.425782-18.324219 44.246094zm0 0"/>
+    </svg>
+  );
+}
+
+export function MobileJogosIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 512 512" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="m350.18 221.99c-.24 0-.48 0-.72 0-15.49.4-27.73 13.3-27.33 28.84.41 15.23 12.88 27.32 28.02 27.32.26 0 .52 0 .78-.01 15.5-.4 27.73-13.3 27.34-28.8-.39-15.26-12.9-27.35-28.08-27.35z"/>
+      <path fill="currentColor" d="m396.91 147.2c-.25 0-.5 0-.75 0-15.5.42-27.73 13.3-27.34 28.83.41 15.23 12.9 27.32 28.03 27.32.26 0 .53 0 .8-.01 15.49-.39 27.74-13.3 27.34-28.79-.41-15.26-12.89-27.35-28.08-27.35z"/>
+      <path fill="currentColor" d="m511.97 363.87c-1.2-66.8-9.09-134.35-22.03-202.53-10.54-47.37-48.46-89.56-109.05-92.65-1.56-.06-3.08-.1-4.56-.1-40.44 0-50.39 23.26-98.08 23.26-.47 0-.94 0-1.42 0-6.91-.04-13.82-.06-20.73-.06s-13.93.02-20.9.06c-.48 0-.95 0-1.42 0-47.69 0-57.68-23.25-98.08-23.25-1.48 0-3 .03-4.56.1-60.6 3.09-99.7 45.17-109.09 92.65-12.96 68.18-20.85 135.71-22.05 202.51-.29 46.51 45.63 77.45 75.93 79.57 1.23.09 2.45.14 3.67.14 56.81 0 102.1-98.93 136.79-98.94 13.23.08 26.47.12 39.7.12s26.35-.04 39.52-.12c34.69 0 79.96 98.95 136.8 98.95 1.22 0 2.44-.05 3.67-.14 30.29-2.12 77.4-33.27 75.89-79.57zm-78.55 41.67c-.07 0-.13 0-.2.01-.27.02-.54.03-.81.03-5.11 0-12.77-3.83-21.55-10.79-11.7-9.27-23.68-22.49-35.26-35.27-24.65-27.2-47.93-52.88-79.99-52.89-.08 0-.15 0-.23 0-13.04.08-26.26.11-39.3.11s-26.38-.04-39.47-.12c-.08 0-.15 0-.23 0-32.05 0-55.34 25.69-79.99 52.89-11.58 12.78-23.56 25.99-35.26 35.26-8.78 6.96-16.43 10.79-21.54 10.79-.27 0-.54-.01-.8-.03-.07 0-.14-.01-.21-.02-12.44-.87-40.59-17.35-40.58-41.25 1.12-61.94 8.1-125.96 21.33-195.69 3.25-16.26 11.62-31.2 23.6-42.09 13.14-11.95 30.41-18.8 49.94-19.83.96-.04 1.9-.06 2.81-.06 11.51 0 18.31 2.93 29.58 7.79 15.12 6.52 35.82 15.46 68.5 15.46h1.71c6.84-.04 13.77-.06 20.61-.06s13.66.02 20.44.06h1.71c32.68 0 53.38-8.94 68.49-15.46 11.26-4.86 18.06-7.8 29.59-7.8.91 0 1.86.02 2.82.06 44.26 2.34 66.99 33.65 73.58 62.41 13.19 69.65 20.14 133.6 21.25 195.48 0 .19 0 .37.01.56.75 22.95-28.16 39.56-40.57 40.43z"/>
+      <path fill="currentColor" d="m190.01 193.68h-28.34v-28.34c0-10.49-8.51-19-19-19s-19 8.51-19 19v28.34h-28.34c-10.49 0-19 8.51-19 19s8.51 19 19 19h28.34v28.34c0 10.49 8.51 19 19 19s19-8.51 19-19v-28.34h28.34c10.49 0 19-8.51 19-19s-8.51-19-19-19z"/>
+    </svg>
+  );
+}
+
+export function MobileCassinoIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 511.999 511.999" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="m84.632 491.662c-13.128-9.193-21.891-22.948-24.674-38.731l-59.041-334.834c-5.744-32.581 16.089-63.762 48.67-69.507l216.658-38.203c32.587-5.743 63.763 16.089 69.508 48.67l59.041 334.834c5.745 32.582-16.088 63.762-48.669 69.507l-216.658 38.202c-15.741 2.777-31.671-.72-44.835-9.938zm188.558-441.882-216.657 38.202c-10.86 1.915-18.138 12.309-16.223 23.17l59.041 334.834c.928 5.261 3.849 9.846 8.225 12.91s9.685 4.241 14.944 3.313l216.658-38.203c10.86-1.915 18.138-12.309 16.223-23.169l-59.041-334.834c-.927-5.261-3.848-9.846-8.225-12.91-4.376-3.064-9.684-4.241-14.945-3.313z"/>
+      <path fill="currentColor" d="m445.458 375.092c-10.878-1.918-18.141-12.291-16.223-23.169l42.455-240.771c1.915-10.861-5.363-21.254-16.223-23.169l-62.58-11.034c-10.878-1.918-18.141-12.291-16.223-23.169s12.289-18.141 23.169-16.223l62.58 11.034c32.581 5.745 54.414 36.926 48.669 69.507l-42.455 240.772c-1.915 10.857-12.271 18.142-23.169 16.222z"/>
+      <path fill="currentColor" d="m204.203 344.069c-75.57-22.932-93.033-61.403-96.717-82.294-5.842-33.134 13.374-63.284 43.746-68.639 14.013-2.471 26.482.168 36.333 4.498 7.776-7.438 18.59-14.182 32.603-16.653 15.571-2.746 30.932 1.413 43.254 11.708 11.086 9.263 18.661 22.698 21.329 37.83 3.684 20.891.431 63.014-62.738 110.41-5.097 3.825-11.712 4.991-17.81 3.14zm-42.099-111.887c-1.254 0-2.564.106-3.926.346-9.595 1.692-12.983 12.753-11.299 22.301 3.261 18.492 24.646 35.641 59.196 47.781 28.314-23.224 42.545-46.654 39.284-65.145-1.018-5.771-3.782-10.903-7.583-14.079-3.208-2.68-6.795-3.694-10.661-3.012-10.87 1.917-15.778 10.743-16.492 12.14-2.538 6.479-7.873 11.103-14.737 12.313-6.861 1.209-13.459-1.311-18.06-6.531-1.005-.936-6.969-6.114-15.722-6.114zm15.605 5.979s0 0 0 0z"/>
+      <path fill="currentColor" d="m106.386 160.27c-9.348 0-20.024-8.278-20.024-19.877 0-10.081 7.619-19.994 19.671-19.994 10.133 0 20.354 7.253 20.354 19.871-.001 11.469-10.146 20-20.001 20z"/>
+      <path fill="currentColor" d="m289.198 391.903c-9.879 0-19.592-8.138-19.592-19.673 0-11.048 7.84-20.274 19.914-20.274 12.41 0 19.704 10.27 19.704 20.071 0 12.718-10.83 19.876-20.026 19.876z"/>
+    </svg>
+  );
+}
+
+export function MobileSlotsIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 512.149 512.149" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="m452.074 212.149h-392c-33.084 0-60 26.916-60 60v180c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60v-180c0-33.085-26.916-60-60-60zm20 240c0 11.028-8.972 20-20 20h-392c-11.028 0-20-8.972-20-20v-180c0-11.028 8.972-20 20-20h392c11.028 0 20 8.972 20 20z"/>
+      <path fill="currentColor" d="m76.074 332.149h32.252l-31.225 93.675 37.947 12.649 48.775-146.324h-87.749z"/>
+      <path fill="currentColor" d="m216.074 332.149h32.252l-31.225 93.675 37.947 12.649 48.774-146.324h-87.748z"/>
+      <path fill="currentColor" d="m356.074 332.149h32.252l-31.225 93.675 37.947 12.649 48.774-146.324h-87.748z"/>
+      <path fill="currentColor" d="m350.169 172.149 61.482-172.149-111.627 55.813-43.949-43.949-43.949 43.949-111.628-55.813 61.482 172.149zm-130.145-67.665 36.051-36.051 36.051 36.051 48.373-24.187-18.519 51.851h-131.811l-18.518-51.851z"/>
+      <path fill="currentColor" d="m.074 132.149h96v40h-96z"/>
+      <path fill="currentColor" d="m396.074 132.149h116v40h-116z"/>
+    </svg>
+  );
+}
+
+function MobileGridIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 512 512" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M176.792,0H59.208C26.561,0,0,26.561,0,59.208v117.584C0,209.439,26.561,236,59.208,236h117.584
+        C209.439,236,236,209.439,236,176.792V59.208C236,26.561,209.439,0,176.792,0z M196,176.792c0,10.591-8.617,19.208-19.208,19.208
+        H59.208C48.617,196,40,187.383,40,176.792V59.208C40,48.617,48.617,40,59.208,40h117.584C187.383,40,196,48.617,196,59.208
+        V176.792z"/>
+      <path fill="currentColor" d="M452,0H336c-33.084,0-60,26.916-60,60v116c0,33.084,26.916,60,60,60h116c33.084,0,60-26.916,60-60V60
+        C512,26.916,485.084,0,452,0z M472,176c0,11.028-8.972,20-20,20H336c-11.028,0-20-8.972-20-20V60c0-11.028,8.972-20,20-20h116
+        c11.028,0,20,8.972,20,20V176z"/>
+      <path fill="currentColor" d="M176.792,276H59.208C26.561,276,0,302.561,0,335.208v117.584C0,485.439,26.561,512,59.208,512h117.584
+        C209.439,512,236,485.439,236,452.792V335.208C236,302.561,209.439,276,176.792,276z M196,452.792
+        c0,10.591-8.617,19.208-19.208,19.208H59.208C48.617,472,40,463.383,40,452.792V335.208C40,324.617,48.617,316,59.208,316h117.584
+        c10.591,0,19.208,8.617,19.208,19.208V452.792z"/>
+      <path fill="currentColor" d="M452,276H336c-33.084,0-60,26.916-60,60v116c0,33.084,26.916,60,60,60h116c33.084,0,60-26.916,60-60V336
+        C512,302.916,485.084,276,452,276z M472,452c0,11.028-8.972,20-20,20H336c-11.028,0-20-8.972-20-20V336c0-11.028,8.972-20,20-20
+        h116c11.028,0,20,8.972,20,20V452z"/>
+    </svg>
+  );
 }
 
 const items: { icon: React.ElementType; label: string; page: Page }[] = [
-  { icon: EsportsIcon, label: 'Esportes', page: 'home' },
-  { icon: JogosIcon, label: 'Jogos', page: 'jogos' },
-  { icon: CassinoIcon, label: 'Cassino', page: 'cassino' },
-  { icon: SlotsIcon, label: 'Slots', page: 'slots' },
+  { icon: MobileAviatorIcon, label: 'Aviator', page: 'home' },
+  { icon: MobileJogosIcon, label: 'Jogos', page: 'jogos' },
+  { icon: MobileCassinoIcon, label: 'Cassino', page: 'cassino' },
+  { icon: MobileSlotsIcon, label: 'Slots', page: 'slots' },
 ];
 
 function NavItem({ item, isActive, onClick }: { item: (typeof items)[number]; isActive: boolean; onClick: () => void }) {
   return (
-    <div className="flex-1 flex items-center justify-center">
-      <button
-        onClick={onClick}
-        className="flex flex-col items-center justify-center gap-1 w-16 h-16 rounded-xl transition-colors"
-        style={isActive ? { background: 'radial-gradient(circle 50px at center 120%, #58B3AD, #0F242F00)' } : undefined}
-      >
-        <item.icon className="w-7 h-7" />
-        <span className={`text-[11px] font-semibold leading-none whitespace-nowrap ${isActive ? 'text-white' : 'text-white/60'}`}>
-          {item.label}
-        </span>
-      </button>
-    </div>
+    <button
+      onClick={onClick}
+      title={item.label}
+      className="flex flex-col items-center justify-center gap-0.5 flex-1 min-w-0 py-1"
+    >
+      <item.icon className={`w-[18px] h-[18px] flex-shrink-0 ${isActive ? 'text-white' : 'text-white/60'}`} />
+      <span className={`text-[9px] leading-none font-medium truncate max-w-full ${isActive ? 'text-white' : 'text-white/60'}`}>
+        {item.label}
+      </span>
+    </button>
   );
 }
 
-export function MobileBottomBar({ activePage, onNavigate }: Props) {
-  // 'home' is a placeholder page for Esportes (no dedicated sports page yet) — don't show it
+export function MobileBottomBar({ activePage, onNavigate, onToggleSidebar }: Props) {
+  // 'home' is a placeholder page for Aviator (no dedicated Aviator page yet) — don't show it
   // as selected just because the app happens to default to the home page on load.
   const isItemActive = (page: Page) => page !== 'home' && activePage === page;
 
   return (
     <div className="lg:hidden fixed bottom-3 left-3 right-3 z-50">
-      <div
-        className="mobile-nav-shadow relative rounded-full border border-[#2A5A6E] backdrop-blur-xl px-3 bg-[#163242E6]"
-      >
-        <div className="flex items-center h-20">
-          {/* First 2 items */}
-          {items.slice(0, 2).map((item) => (
-            <NavItem key={item.page} item={item} isActive={isItemActive(item.page)} onClick={() => onNavigate(item.page)} />
-          ))}
+      <div className="mobile-nav-shadow flex items-center gap-1 h-14 rounded-full border border-white/15 pl-2 pr-1 bg-[#58B0B1]/85 backdrop-blur-md">
+        {items.slice(0, 2).map((item) => (
+          <NavItem key={item.page} item={item} isActive={isItemActive(item.page)} onClick={() => onNavigate(item.page)} />
+        ))}
 
-          {/* Centre logo — same rotating ring / glow badge as the login page, scaled up to fit this taller bar */}
-          <button
-            onClick={() => onNavigate('home')}
-            className="relative flex items-center justify-center w-[78px] h-[78px] rounded-full flex-shrink-0 hover:opacity-90 transition-opacity"
-          >
-            <span className="mobile-nav-ring absolute inset-0 rounded-full animate-[spin_4s_linear_infinite]" />
-            <span className="mobile-nav-glow absolute inset-0 rounded-full animate-pulse" />
-            <span className="relative w-[67px] h-[67px] rounded-full bg-[#1F475F] border-2 border-[#0B1921] shadow-lg flex items-center justify-center overflow-hidden">
-              <img src={logoImage} alt="Home" className="w-[52px] h-[52px] object-contain" />
-            </span>
-          </button>
+        {/* Centre grid — opens the mobile sidebar menu */}
+        <button
+          onClick={onToggleSidebar}
+          title="Menu"
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-white flex-shrink-0 hover:opacity-90 transition-opacity"
+        >
+          <MobileGridIcon className="w-[18px] h-[18px] text-[#58B0B1]" />
+        </button>
 
-          {/* Last 2 items */}
-          {items.slice(2).map((item) => (
-            <NavItem key={item.page} item={item} isActive={isItemActive(item.page)} onClick={() => onNavigate(item.page)} />
-          ))}
-        </div>
+        {items.slice(2).map((item) => (
+          <NavItem key={item.page} item={item} isActive={isItemActive(item.page)} onClick={() => onNavigate(item.page)} />
+        ))}
       </div>
     </div>
   );

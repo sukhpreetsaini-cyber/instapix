@@ -96,8 +96,8 @@ export function PromoCards() {
                 onClick={() => goToMobileSlide(index)}
                 className={`h-2 rounded-full transition-all ${
                   index === mobileIndex
-                    ? 'w-8 bg-[#58B3AD]'
-                    : 'w-2 bg-white/30 hover:bg-white/50'
+                    ? 'w-8 bg-[#58B0B1]'
+                    : 'w-2 bg-black/30 hover:bg-black/50'
                 }`}
                 aria-label={`Go to banner ${index + 1}`}
               />
@@ -139,8 +139,8 @@ export function PromoCards() {
                 onClick={() => setDesktopIndex(index)}
                 className={`h-2 rounded-full transition-all ${
                   index === desktopIndex
-                    ? 'w-8 bg-[#58B3AD]'
-                    : 'w-2 bg-white/30 hover:bg-white/50'
+                    ? 'w-8 bg-[#58B0B1]'
+                    : 'w-2 bg-black/30 hover:bg-black/50'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

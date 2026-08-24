@@ -2,37 +2,10 @@ import type { StaticPageData } from '../pages/StaticPage';
 
 export const staticPages: StaticPageData[] = [
   {
-    slug: 'apostas-esportivas',
-    title: 'Apostas Esportivas Online',
-    subtitle: 'Conheça mais sobre apostas esportivas',
-    accentColor: '#58B3AD',
-    blocks: [
-      { type: 'h2', text: 'O que são odds e como influenciam nos ganhos?' },
-      { type: 'p', text: 'As odds representam a probabilidade estimada de um determinado resultado acontecer em um evento esportivo. Quanto maior a odd, maior o retorno potencial — mas também maior o risco envolvido. Na Instapix você encontra odds competitivas em centenas de mercados.' },
-      { type: 'highlight', text: 'Exemplo: Uma odd de 2.50 significa que para cada R$10 apostados, você recebe R$25 em caso de acerto — incluindo o valor apostado.' },
-      { type: 'h2', text: 'Por que times favoritos têm odds menores?' },
-      { type: 'p', text: 'Times favoritos têm maior probabilidade de vitória segundo as casas de apostas. Como o risco é menor, o retorno também é proporcionalmente menor. Já os azarões oferecem odds mais altas justamente por terem menor chance de vencer.' },
-      { type: 'h2', text: 'Tipos de Apostas na Instapix' },
-      { type: 'h3', text: 'Chance Dupla / Resultado' },
-      { type: 'p', text: 'Aposte no resultado final da partida: vitória do time da casa, empate ou vitória do visitante.' },
-      { type: 'h3', text: 'Múltiplas / Acumulador' },
-      { type: 'p', text: 'Combine dois ou mais eventos em uma única aposta para multiplicar os ganhos. Todos os palpites precisam estar corretos.' },
-      { type: 'h3', text: 'Handicap' },
-      { type: 'p', text: 'O handicap equilibra as chances entre times de diferentes níveis, adicionando ou subtraindo gols/pontos do resultado final para efeitos de aposta.' },
-      { type: 'h2', text: 'Por onde começar a apostar?' },
-      { type: 'ol', items: ['Crie sua conta gratuitamente na Instapix', 'Realize um depósito via PIX em segundos', 'Escolha o esporte e o evento desejado', 'Selecione o mercado e defina o valor da aposta', 'Confirme o bilhete e acompanhe em tempo real'] },
-      { type: 'h2', text: 'Modalidades populares no Futebol' },
-      { type: 'ul', items: ['Resultado da partida (1X2)', 'Ambas as equipes marcam (BTTS)', 'Total de gols (Over/Under)', 'Placar exato', 'Primeiro marcador', 'Escanteios e cartões'] },
-      { type: 'h2', text: 'Apostas ao Vivo' },
-      { type: 'p', text: 'Na Instapix você pode apostar em eventos que já estão acontecendo. As odds são atualizadas em tempo real conforme o desenrolar da partida, oferecendo oportunidades únicas de mercado.' },
-      { type: 'highlight', text: 'O cash out permite encerrar sua aposta antes do fim do evento, garantindo parte do lucro ou limitando o prejuízo.' },
-    ],
-  },
-  {
     slug: 'caca-niqueis-online',
     title: 'Caça-Níqueis Online',
     subtitle: 'Tudo sobre slots e como aproveitar ao máximo',
-    accentColor: '#F5A623',
+    accentColor: '#505050',
     blocks: [
       { type: 'h2', text: 'Como funcionam os caça-níqueis online?' },
       { type: 'p', text: 'Os slots online utilizam um Gerador de Números Aleatórios (RNG) certificado para garantir que cada rodada seja completamente independente e justa. Os resultados não podem ser previstos ou manipulados.' },
@@ -58,7 +31,7 @@ export const staticPages: StaticPageData[] = [
     slug: 'metodos-de-pagamento',
     title: 'Métodos de Pagamento',
     subtitle: 'Depósitos e saques rápidos e seguros na Instapix',
-    accentColor: '#1E9F96',
+    accentColor: '#58B0B1',
     blocks: [
       { type: 'h2', text: 'PIX — Depósito e Saque Instantâneo' },
       { type: 'p', text: 'O PIX é o método de pagamento principal da Instapix. Disponível 24 horas por dia, 7 dias por semana, incluindo feriados. Depósitos são creditados em segundos e saques processados em até 10 minutos.' },
@@ -79,7 +52,7 @@ export const staticPages: StaticPageData[] = [
     slug: 'fale-conosco',
     title: 'Fale Conosco',
     subtitle: 'Estamos disponíveis 24 horas por dia para te ajudar',
-    accentColor: '#FB7185',
+    accentColor: '#EF4444',
     blocks: [
       { type: 'h2', text: 'Canais de Atendimento' },
       { type: 'h3', text: 'Chat ao Vivo — Disponível 24/7' },
@@ -104,7 +77,7 @@ export const staticPages: StaticPageData[] = [
     slug: 'termos-condicoes',
     title: 'Termos e Condições',
     subtitle: 'Leia atentamente antes de utilizar nossos serviços',
-    accentColor: '#58B3AD',
+    accentColor: '#58B0B1',
     blocks: [
       { type: 'h2', text: '1. Aceitação dos Termos' },
       { type: 'p', text: 'Ao criar uma conta e utilizar os serviços da Instapix, você declara ter lido, compreendido e concordado com todos os termos e condições aqui descritos. Caso não concorde com algum item, não utilize nossos serviços.' },
@@ -126,33 +99,10 @@ export const staticPages: StaticPageData[] = [
     ],
   },
   {
-    slug: 'regras-apostas-esportivas',
-    title: 'Regras de Apostas Esportivas',
-    subtitle: 'Regras gerais que regem todas as apostas na plataforma',
-    accentColor: '#58B3AD',
-    blocks: [
-      { type: 'h2', text: 'Regras Gerais' },
-      { type: 'p', text: 'Todas as apostas são aceitas conforme as regras aqui descritas. A Instapix reserva-se o direito de suspender, cancelar ou reajustar apostas em caso de erros de odds, eventos cancelados ou irregularidades identificadas.' },
-      { type: 'h2', text: 'Cancelamento de Eventos' },
-      { type: 'p', text: 'Se um evento for cancelado ou adiado por mais de 48 horas da data e hora originalmente agendadas, todas as apostas simples sobre esse evento serão reembolsadas. Em apostas múltiplas, a seleção cancelada é removida e o acumulador continua com as seleções restantes.' },
-      { type: 'h2', text: 'Futebol' },
-      { type: 'ul', items: ['As apostas cobrem 90 minutos de jogo mais o tempo acrescido', 'Prorrogação e pênaltis não são incluídos, salvo indicação contrária', 'Mercado "Ambas Marcam": pelo menos um gol de cada time nos 90 min', 'Jogos suspensos com menos de 90 min jogados são anulados'] },
-      { type: 'h2', text: 'Basquete' },
-      { type: 'ul', items: ['Apostas cobrindo o jogo completo incluem prorrogações', 'Mercado de quartos/meios excluem prorrogação', 'Jogos suspensos antes do intervalo são anulados'] },
-      { type: 'h2', text: 'Tênis' },
-      { type: 'ul', items: ['Se um jogador se retira após o início do jogo, o adversário é declarado vencedor', 'Apostas em sets incluem games de tie-break', 'Jogos não concluídos por condições climáticas são suspensos e retomados'] },
-      { type: 'h2', text: 'Apostas ao Vivo' },
-      { type: 'p', text: 'Apostas ao vivo podem ser suspensas a qualquer momento durante o evento. Uma vez confirmada, a aposta não pode ser cancelada pelo usuário, exceto por meio do recurso de Cash Out quando disponível.' },
-      { type: 'highlight', text: 'Em caso de discrepância entre as odds exibidas e as efetivamente aplicadas no momento da confirmação, prevalece a odd confirmada no bilhete.' },
-      { type: 'h2', text: 'Apostas Inválidas' },
-      { type: 'p', text: 'São consideradas inválidas e reembolsadas apostas onde: a odd foi configurada incorretamente por erro técnico, o evento não era elegível para apostas, ou ocorreu falha de comunicação na confirmação do bilhete.' },
-    ],
-  },
-  {
     slug: 'politica-privacidade',
     title: 'Política de Privacidade',
     subtitle: 'Como coletamos, usamos e protegemos seus dados pessoais',
-    accentColor: '#FB7185',
+    accentColor: '#EF4444',
     blocks: [
       { type: 'h2', text: '1. Dados que Coletamos' },
       { type: 'ul', items: ['Dados de identificação: nome, CPF, data de nascimento, e-mail, telefone', 'Dados de acesso: endereço IP, navegador, dispositivo utilizado', 'Dados financeiros: histórico de transações (nunca armazenamos dados bancários completos)', 'Dados de comportamento: preferências de jogo, tempo de sessão'] },
@@ -175,7 +125,7 @@ export const staticPages: StaticPageData[] = [
     slug: 'central-de-ajuda',
     title: 'Central de Ajuda',
     subtitle: 'Encontre respostas para as dúvidas mais comuns',
-    accentColor: '#1E9F96',
+    accentColor: '#58B0B1',
     blocks: [
       { type: 'h2', text: 'Conta e Cadastro' },
       { type: 'h3', text: 'Como criar minha conta?' },
@@ -206,7 +156,7 @@ export const staticPages: StaticPageData[] = [
     slug: 'politica-menores',
     title: 'Proteção de Menores',
     subtitle: 'Nossa política de proteção a menores de 18 anos',
-    accentColor: '#ef4444',
+    accentColor: '#EF4444',
     blocks: [
       { type: 'h2', text: 'Compromisso com a Proteção de Menores' },
       { type: 'p', text: 'A Instapix tem tolerância zero com o acesso de menores de 18 anos à plataforma. O jogo online é uma atividade exclusivamente para adultos, e adotamos medidas rigorosas para garantir que nenhum menor possa criar conta ou realizar apostas em nossa plataforma.' },
@@ -227,12 +177,10 @@ export const staticPages: StaticPageData[] = [
 ];
 
 export type StaticPageSlug =
-  | 'apostas-esportivas'
   | 'caca-niqueis-online'
   | 'metodos-de-pagamento'
   | 'fale-conosco'
   | 'termos-condicoes'
-  | 'regras-apostas-esportivas'
   | 'politica-privacidade'
   | 'central-de-ajuda'
   | 'politica-menores';

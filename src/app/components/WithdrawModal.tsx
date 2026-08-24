@@ -53,16 +53,16 @@ export function WithdrawModal({ onClose }: Props) {
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 modal-overlay-78"
       onClick={e => e.target === e.currentTarget && onClose()}
     >
-      <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-white/15 modal-card-glow">
+      <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-black/15 modal-card-glow">
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.08]">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-black/[0.08]">
           <div>
-            <h2 className="text-white font-bold text-lg">Solicitar Saque</h2>
-            <p className="text-gray-400 text-xs mt-0.5">Transfira seu saldo via PIX</p>
+            <h2 className="text-[#58B0B1] font-bold text-lg">Solicitar Saque</h2>
+            <p className="text-gray-600 text-xs mt-0.5">Transfira seu saldo via PIX</p>
           </div>
-          <button onClick={onClose} className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 flex items-center justify-center transition-colors">
-            <X className="w-4 h-4 text-gray-400" />
+          <button onClick={onClose} className="w-8 h-8 rounded-full bg-black/5 hover:bg-black/15 flex items-center justify-center transition-colors">
+            <X className="w-4 h-4 text-gray-600" />
           </button>
         </div>
 
@@ -70,15 +70,15 @@ export function WithdrawModal({ onClose }: Props) {
           {submitted ? (
             /* Success state */
             <div className="py-6 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#1E9F96]/10 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-8 h-8 text-[#1E9F96]" />
+              <div className="w-16 h-16 rounded-full bg-[#58B0B1]/10 flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-8 h-8 text-[#58B0B1]" />
               </div>
               <div>
-                <p className="text-white font-bold text-xl mb-1">Saque Solicitado!</p>
-                <p className="text-gray-400 text-sm">Seu saque de <span className="text-white font-semibold">R$ {parseFloat(amount).toFixed(2).replace('.',',')}</span> foi enviado para processamento.</p>
+                <p className="text-[#58B0B1] font-bold text-xl mb-1">Saque Solicitado!</p>
+                <p className="text-gray-600 text-sm">Seu saque de <span className="text-black font-semibold">R$ {parseFloat(amount).toFixed(2).replace('.',',')}</span> foi enviado para processamento.</p>
               </div>
-              <p className="text-gray-400 text-xs">Processamento em até 10 minutos · via PIX</p>
-              <button onClick={onClose} className="w-full py-3 rounded-xl text-white font-semibold hover:opacity-90 bg-[#1E9F96]">
+              <p className="text-gray-600 text-xs">Processamento em até 10 minutos · via PIX</p>
+              <button onClick={onClose} className="w-full py-3 rounded-xl text-white font-semibold hover:opacity-90 bg-[#58B0B1]">
                 Fechar
               </button>
             </div>
@@ -86,15 +86,15 @@ export function WithdrawModal({ onClose }: Props) {
             <>
               {/* Balance */}
               <div className="flex items-center justify-between">
-                <span className="text-gray-400 text-xs">Saldo disponível para saque</span>
-                <span className="text-[#58B3AD] font-bold text-sm">R$ {BALANCE.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                <span className="text-gray-600 text-xs">Saldo disponível para saque</span>
+                <span className="text-[#58B0B1] font-bold text-sm">R$ {BALANCE.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
               </div>
 
               {/* Amount input */}
               <div>
-                <label className="text-gray-400 text-xs mb-2 block">Valor a sacar (mínimo R$ 50)</label>
+                <label className="text-gray-600 text-xs mb-2 block">Valor a sacar (mínimo R$ 50)</label>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium">R$</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 text-sm font-medium">R$</span>
                   <input
                     type="number"
                     min={50}
@@ -102,7 +102,7 @@ export function WithdrawModal({ onClose }: Props) {
                     placeholder="0,00"
                     value={amount}
                     onChange={e => { setAmount(e.target.value); setSelected(null); }}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3.5 text-white text-xl font-bold focus:outline-none focus:border-[#58B3AD] transition-colors placeholder-white/20 text-center"
+                    className="w-full bg-white border border-black/10 rounded-xl pl-10 pr-4 py-3.5 text-black text-xl font-bold focus:outline-none focus:border-[#58B0B1] transition-colors placeholder-black/20 text-center"
                   />
                 </div>
                 {numeric > BALANCE && (
@@ -114,9 +114,9 @@ export function WithdrawModal({ onClose }: Props) {
               <div className="grid grid-cols-3 gap-2">
                 {PRESETS.map(p => (
                   <button key={p.value} onClick={() => pickPreset(p.value)}
-                    className="relative py-2.5 rounded-xl text-sm font-bold border transition-all dyn-bg dyn-border dyn-text" style={{ '--dyn-bg': selected === p.value ? 'rgba(88, 179, 173,0.15)' : 'rgba(255,255,255,0.04)', '--dyn-border': selected === p.value ? '#58B3AD' : 'rgba(255,255,255,0.08)', '--dyn-text': selected === p.value ? '#58B3AD' : '#9ca3af' } as React.CSSProperties}>
+                    className="relative py-2.5 rounded-xl text-sm font-bold border transition-all dyn-bg dyn-border dyn-text" style={{ '--dyn-bg': selected === p.value ? 'rgba(0,0,0,0.15)' : 'rgba(0,0,0,0.04)', '--dyn-border': selected === p.value ? '#58B0B1' : 'rgba(0,0,0,0.08)', '--dyn-text': selected === p.value ? '#58B0B1' : '#5D5D5D' } as React.CSSProperties}>
                     {p.tag && (
-                      <span className="absolute -top-2 -right-1 text-[9px] font-bold px-1 py-0.5 rounded text-black dyn-bg" style={{ '--dyn-bg': p.tag === 'HOT' ? '#ef4444' : '#1E9F96' } as React.CSSProperties}>
+                      <span className="absolute -top-2 -right-1 text-[9px] font-bold px-1 py-0.5 rounded text-black dyn-bg" style={{ '--dyn-bg': p.tag === 'HOT' ? '#EF4444' : '#58B0B1' } as React.CSSProperties}>
                         {p.tag}
                       </span>
                     )}
@@ -127,22 +127,22 @@ export function WithdrawModal({ onClose }: Props) {
 
               {/* PIX key */}
               <div>
-                <label className="text-gray-400 text-xs mb-2 block">Chave PIX para recebimento</label>
+                <label className="text-gray-600 text-xs mb-2 block">Chave PIX para recebimento</label>
                 <div className="flex gap-2">
                   {/* Key type dropdown */}
                   <div className="relative flex-shrink-0">
                     <button
                       onClick={() => setDropOpen(p => !p)}
-                      className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm min-w-[130px] justify-between hover:border-white/20 transition-colors"
+                      className="flex items-center gap-2 bg-white border border-black/10 rounded-xl px-3 py-2.5 text-black text-sm min-w-[130px] justify-between hover:border-black/20 transition-colors"
                     >
                       <span>{keyType}</span>
-                      <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${dropOpen ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 text-gray-600 transition-transform ${dropOpen ? 'rotate-180' : ''}`} />
                     </button>
                     {dropOpen && (
-                      <div className="absolute top-full mt-1 left-0 w-full bg-[#163242] border border-white/10 rounded-xl overflow-hidden z-10 shadow-xl">
+                      <div className="absolute top-full mt-1 left-0 w-full bg-[#E3E3E3] border border-black/10 rounded-xl overflow-hidden z-10 shadow-xl">
                         {KEY_TYPES.map(t => (
                           <button key={t} onClick={() => { setKeyType(t); setDropOpen(false); }}
-                            className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-white/5 ${keyType === t ? 'text-[#58B3AD]' : 'text-gray-300'}`}>
+                            className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-black/5 ${keyType === t ? 'text-[#58B0B1]' : 'text-gray-700'}`}>
                             {t}
                           </button>
                         ))}
@@ -153,40 +153,42 @@ export function WithdrawModal({ onClose }: Props) {
                     value={keyValue}
                     onChange={e => setKeyValue(e.target.value)}
                     placeholder={keyPlaceholder[keyType]}
-                    className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#58B3AD] transition-colors placeholder-gray-500"
+                    className="flex-1 bg-white border border-black/10 rounded-xl px-3 py-2.5 text-black text-sm focus:outline-none focus:border-[#58B0B1] transition-colors placeholder-gray-500"
                   />
                 </div>
               </div>
 
               {/* Warning box */}
-              <div className="rounded-xl border border-[#58B3AD]/20 bg-[#58B3AD]/5 p-4 space-y-2">
+              <div className="rounded-xl border border-[#58B0B1]/20 bg-[#58B0B1]/5 p-4 space-y-2">
                 <div className="flex gap-2">
-                  <AlertTriangle className="w-4 h-4 text-[#58B3AD] flex-shrink-0 mt-0.5" />
-                  <div className="text-xs text-gray-300 space-y-1.5">
-                    <p>Saques para contas bancárias de terceiros serão <strong className="text-white">rejeitados</strong>.</p>
-                    <p>O saque será processado para sua conta em até <strong className="text-white">10 minutos</strong>.</p>
-                    <p>Qualquer bônus ainda não convertido será <strong className="text-white">perdido</strong> ao sacar.</p>
+                  <AlertTriangle className="w-4 h-4 text-[#58B0B1] flex-shrink-0 mt-0.5" />
+                  <div className="text-xs text-gray-700 space-y-1.5">
+                    <p>Saques para contas bancárias de terceiros serão <strong className="text-black">rejeitados</strong>.</p>
+                    <p>O saque será processado para sua conta em até <strong className="text-black">10 minutos</strong>.</p>
+                    <p>Qualquer bônus ainda não convertido será <strong className="text-black">perdido</strong> ao sacar.</p>
                   </div>
                 </div>
                 <label className="flex items-center gap-2 cursor-pointer pt-1">
                   <input type="checkbox" checked={agreedWarning} onChange={e => setAgreedWarning(e.target.checked)}
-                    className="w-4 h-4 rounded accent-[#58B3AD]" />
-                  <span className="text-gray-400 text-xs">Entendi e concordo</span>
+                    className="w-4 h-4 rounded bg-white accent-[#58B0B1]" />
+                  <span className="text-gray-600 text-xs">Entendi e concordo</span>
                 </label>
               </div>
 
               {/* Terms */}
               <label className="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" checked={agreedTerms} onChange={e => setAgreedTerms(e.target.checked)}
-                  className="w-4 h-4 rounded accent-[#58B3AD]" />
-                <span className="text-gray-400 text-xs">Aceito os termos de transferência</span>
+                  className="w-4 h-4 rounded bg-white accent-[#58B0B1]" />
+                <span className="text-gray-600 text-xs">Aceito os termos de transferência</span>
               </label>
 
               {/* Submit */}
               <button
                 onClick={handleSubmit}
                 disabled={!canSubmit}
-                className="w-full py-4 rounded-xl font-bold text-white text-base transition-all disabled:opacity-35 disabled:cursor-not-allowed dyn-bg" style={{ '--dyn-bg': canSubmit ? '#58B3AD' : '#374151' } as React.CSSProperties}
+                className={`w-full py-4 rounded-xl font-bold text-white text-base transition-all disabled:opacity-35 disabled:cursor-not-allowed ${
+                  canSubmit ? 'bg-[#58B0B1]' : 'bg-[#BFBFBF]'
+                }`}
               >
                 SACAR
               </button>

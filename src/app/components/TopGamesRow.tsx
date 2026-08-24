@@ -25,26 +25,26 @@ export function TopGamesRow({ title, games }: TopGamesRowProps) {
     <div className="mb-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <div className="bg-gradient-to-r from-[#1F475F] to-[#58B3AD] p-1 rounded">
-            <Trophy className="w-4 h-4 text-white fill-white" />
+          <div className="bg-gradient-to-r from-[#D5D5D5] to-[#58B0B1] p-1 rounded">
+            <Trophy className="w-4 h-4 text-black fill-white" />
           </div>
-          <h2 className="text-white text-lg">{title}</h2>
+          <h2 className="text-black text-lg">{title}</h2>
         </div>
 
         <div className="hidden sm:flex gap-2">
           <button
             onClick={() => scroll('left')}
-            className="text-white p-2 rounded transition-colors border border-[#1E9F96]/40 hover:border-[#1E9F96] bg-[#1E9F9622]"
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#1E9F96')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1E9F9622')}
+            className="text-black p-2 rounded transition-colors border border-[#58B0B1]/40 hover:border-[#58B0B1] bg-[#58B0B122]"
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#58B0B1')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#58B0B122')}
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="text-white p-2 rounded transition-colors border border-[#1E9F96]/40 hover:border-[#1E9F96] bg-[#1E9F9622]"
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#1E9F96')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1E9F9622')}
+            className="text-black p-2 rounded transition-colors border border-[#58B0B1]/40 hover:border-[#58B0B1] bg-[#58B0B122]"
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#58B0B1')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#58B0B122')}
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -58,7 +58,7 @@ export function TopGamesRow({ title, games }: TopGamesRowProps) {
         {games.map((game, index) => (
           <button
             key={index}
-            className="rounded-lg overflow-hidden group hover:scale-105 hover:shadow-lg hover:shadow-[#58B3AD]/30 transition-all flex-shrink-0 w-[30vw] sm:w-[calc(14.28%-10.3px)] sm:min-w-[140px]"
+            className="rounded-lg overflow-hidden group hover:scale-105 hover:shadow-lg hover:shadow-[#58B0B1]/30 transition-all flex-shrink-0 w-[30vw] sm:w-[calc(14.28%-10.3px)] sm:min-w-[140px]"
           >
             <div className="aspect-[3/4] relative overflow-hidden rounded-lg">
               <img

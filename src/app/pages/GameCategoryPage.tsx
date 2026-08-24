@@ -78,21 +78,21 @@ function GameRow({ title, games }: { title: string; games: Game[] }) {
   return (
     <div className="mb-8">
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-white font-semibold text-base sm:text-lg">{title}</h2>
+        <h2 className="text-black font-semibold text-base sm:text-lg">{title}</h2>
         <div className="hidden sm:flex gap-2">
           <button
             onClick={() => scroll('left')}
-            className="text-white p-1.5 rounded transition-colors border border-[#1E9F96]/40 hover:border-[#1E9F96] bg-[#1E9F9622]"
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#1E9F96')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1E9F9622')}
+            className="text-black p-1.5 rounded transition-colors border border-[#58B0B1]/40 hover:border-[#58B0B1] bg-[#58B0B122]"
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#58B0B1')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#58B0B122')}
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="text-white p-1.5 rounded transition-colors border border-[#1E9F96]/40 hover:border-[#1E9F96] bg-[#1E9F9622]"
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#1E9F96')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1E9F9622')}
+            className="text-black p-1.5 rounded transition-colors border border-[#58B0B1]/40 hover:border-[#58B0B1] bg-[#58B0B122]"
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#58B0B1')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#58B0B122')}
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -106,7 +106,7 @@ function GameRow({ title, games }: { title: string; games: Game[] }) {
         {games.map((game, i) => (
           <button
             key={i}
-            className="flex-shrink-0 rounded-xl overflow-hidden group hover:scale-105 transition-all hover:shadow-xl hover:shadow-[#58B3AD]/30 w-[30vw] sm:w-40 md:w-44 relative"
+            className="flex-shrink-0 rounded-xl overflow-hidden group hover:scale-105 transition-all hover:shadow-xl hover:shadow-[#58B0B1]/30 w-[30vw] sm:w-40 md:w-44 relative"
           >
             <div className="aspect-[3/4] relative overflow-hidden">
               <img
@@ -151,9 +151,9 @@ export function GameCategoryPage({ page, onNavigateStatic }: Props) {
               <input
                 type="text"
                 placeholder="Buscar jogos, categorias..."
-                className="w-full bg-white/5 text-white placeholder-gray-400 pl-4 pr-10 py-2.5 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#58B3AD] border border-white/15"
+                className="w-full bg-black/5 text-black placeholder-gray-600 pl-4 pr-10 py-2.5 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#58B0B1] border border-black/15"
               />
-              <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
             </div>
           </div>
 
@@ -168,21 +168,21 @@ export function GameCategoryPage({ page, onNavigateStatic }: Props) {
                   className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
                     activeTab === i
                       ? 'text-white'
-                      : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
+                      : 'bg-black/5 text-gray-600 hover:text-black hover:bg-black/10'
                   }`}
-                  style={activeTab === i ? { backgroundColor: '#1E9F96' } : {}}
+                  style={activeTab === i ? { backgroundColor: '#58B0B1' } : {}}
                 >
                   {tab}
                 </button>
               ))}
             </div>
 
-            <div className="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 w-72 md:w-96 flex-shrink-0">
+            <div className="hidden sm:flex items-center gap-2.5 bg-black/5 border border-black/10 rounded-xl px-3.5 py-2 w-72 md:w-96 flex-shrink-0">
               <Search className="w-4 h-4 text-gray-500 flex-shrink-0" />
               <input
                 type="text"
                 placeholder="Buscar jogos, categorias..."
-                className="bg-transparent text-white placeholder-gray-500 text-sm focus:outline-none w-full"
+                className="bg-transparent text-black placeholder-gray-500 text-sm focus:outline-none w-full"
               />
             </div>
           </div>

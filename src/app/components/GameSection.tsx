@@ -27,10 +27,10 @@ export function GameSection({ title, icon = 'star', games }: GameSectionProps) {
   return (
     <div className="mb-6">
       <div className="flex items-center gap-2 mb-4">
-        <div className="bg-gradient-to-r from-[#1F475F] to-[#58B3AD] p-1 rounded">
-          <Icon className="w-4 h-4 text-white fill-white" />
+        <div className="bg-gradient-to-r from-[#D5D5D5] to-[#58B0B1] p-1 rounded">
+          <Icon className="w-4 h-4 text-black fill-white" />
         </div>
-        <h2 className="text-white text-lg">{title}</h2>
+        <h2 className="text-black text-lg">{title}</h2>
       </div>
 
       <div className="grid grid-cols-6 gap-4">
@@ -43,11 +43,11 @@ export function GameSection({ title, icon = 'star', games }: GameSectionProps) {
               {game.emoji}
             </div>
             <div className="bg-black/40 p-3 text-left">
-              <h3 className="text-white text-sm font-bold mb-1 truncate">{game.title}</h3>
+              <h3 className="text-black text-sm font-bold mb-1 truncate">{game.title}</h3>
               <div className="flex items-center justify-between">
-                <span className="text-gray-300 text-xs truncate">{game.provider}</span>
+                <span className="text-gray-700 text-xs truncate">{game.provider}</span>
                 {game.rtp && (
-                  <span className="text-green-400 text-xs">{game.rtp}</span>
+                  <span className="text-black text-xs">{game.rtp}</span>
                 )}
               </div>
             </div>

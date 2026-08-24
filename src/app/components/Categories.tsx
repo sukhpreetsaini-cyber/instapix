@@ -7,7 +7,6 @@ import imgSlots from '../../imports/category-slots.webp';
 import imgBingo from '../../imports/category-bingo.webp';
 import imgCassino from '../../imports/category-cassino.webp';
 import imgRoletas from '../../imports/category-roletas.webp';
-import imgEsports from '../../imports/category-esports.webp';
 import imgMines from '../../imports/category-mines.webp';
 import imgSuporte from '../../imports/category-suporte.webp';
 
@@ -21,7 +20,6 @@ const categories = [
   { img: imgBingo, label: 'Bingo' },
   { img: imgCassino, label: 'Cassino' },
   { img: imgRoletas, label: 'Roletas' },
-  { img: imgEsports, label: 'E-Sports' },
   { img: imgMines, label: 'Mines' },
   { img: imgSuporte, label: 'Suporte' },
 ];
@@ -36,10 +34,10 @@ export function Categories() {
               key={index}
               className="group flex-shrink-0 w-16 lg:w-[72px] flex flex-col items-center gap-1.5 text-center transition-colors"
             >
-              <span className="w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full overflow-hidden border border-[#2A5A6E]">
+              <span className="w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full overflow-hidden border border-[#C5C5C5]">
                 <img src={category.img} alt={category.label} className="w-full h-full object-cover" />
               </span>
-              <span className="text-white text-[11px] leading-tight text-center font-medium whitespace-normal group-hover:text-[#58B3AD]">
+              <span className="text-black text-[11px] leading-tight text-center font-medium whitespace-normal group-hover:text-[#58B0B1]">
                 {category.label}
               </span>
             </button>
