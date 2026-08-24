@@ -20,7 +20,7 @@ export function Header({ onNavigate, onOpenDeposit, showWinners, onToggleWinners
       <div className="flex items-center gap-1.5 sm:gap-4 lg:gap-6 h-full flex-shrink-0 min-w-0">
         {/* Mobile logo mark — sidebar (which carries the full logo) is hidden by default on mobile */}
         <button onClick={() => onNavigate?.('home')} className="lg:hidden flex-shrink-0">
-          <img src={logoIcon} alt="Instapix" className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
+          <img src={logoIcon} alt="Instapix" className="w-9 h-9 sm:w-10 sm:h-10 object-contain" />
         </button>
 
         {/* Mobile notification bell */}

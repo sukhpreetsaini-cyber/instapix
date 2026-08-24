@@ -6,6 +6,7 @@ interface Props {
   activePage: Page;
   onNavigate: (page: Page) => void;
   onToggleSidebar?: () => void;
+  shrunk?: boolean;
 }
 
 export function MobileAviatorIcon({ className }: { className?: string }) {
@@ -96,30 +97,45 @@ function NavItem({ item, isActive, onClick }: { item: (typeof items)[number]; is
   );
 }
 
-export function MobileBottomBar({ activePage, onNavigate, onToggleSidebar }: Props) {
+export function MobileBottomBar({ activePage, onNavigate, onToggleSidebar, shrunk }: Props) {
   // 'home' is a placeholder page for Aviator (no dedicated Aviator page yet) — don't show it
   // as selected just because the app happens to default to the home page on load.
   const isItemActive = (page: Page) => page !== 'home' && activePage === page;
 
   return (
-    <div className="lg:hidden fixed bottom-3 left-3 right-3 z-50">
-      <div className="mobile-nav-shadow flex items-center gap-1 h-14 rounded-full border border-white/15 pl-2 pr-1 bg-[#58B0B1]/85 backdrop-blur-md">
-        {items.slice(0, 2).map((item) => (
-          <NavItem key={item.page} item={item} isActive={isItemActive(item.page)} onClick={() => onNavigate(item.page)} />
-        ))}
+    <div
+      className="lg:hidden fixed left-3 right-3 z-50"
+      style={{ bottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
+    >
+      {/*
+        The box-shadow lives on this outer, non-blurred wrapper rather than on the
+        backdrop-blur pill itself — combining box-shadow with backdrop-filter on the
+        same element gets the shadow clipped at the bottom edge in mobile Safari.
+        Scaling also happens here so the shadow shrinks/grows together with the pill.
+      */}
+      <div
+        className={`mobile-nav-shadow rounded-full origin-bottom transition-transform duration-300 ease-out ${
+          shrunk ? 'scale-[0.7]' : 'scale-100'
+        }`}
+      >
+        <div className="flex items-center gap-1 h-14 rounded-full border border-white/15 pl-2 pr-1 bg-[#58B0B1]/85 backdrop-blur-md">
+          {items.slice(0, 2).map((item) => (
+            <NavItem key={item.page} item={item} isActive={isItemActive(item.page)} onClick={() => onNavigate(item.page)} />
+          ))}
 
-        {/* Centre grid — opens the mobile sidebar menu */}
-        <button
-          onClick={onToggleSidebar}
-          title="Menu"
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-white flex-shrink-0 hover:opacity-90 transition-opacity"
-        >
-          <MobileGridIcon className="w-[18px] h-[18px] text-[#58B0B1]" />
-        </button>
+          {/* Centre grid — opens the mobile sidebar menu */}
+          <button
+            onClick={onToggleSidebar}
+            title="Menu"
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white flex-shrink-0 hover:opacity-90 transition-opacity"
+          >
+            <MobileGridIcon className="w-[18px] h-[18px] text-[#58B0B1]" />
+          </button>
 
-        {items.slice(2).map((item) => (
-          <NavItem key={item.page} item={item} isActive={isItemActive(item.page)} onClick={() => onNavigate(item.page)} />
-        ))}
+          {items.slice(2).map((item) => (
+            <NavItem key={item.page} item={item} isActive={isItemActive(item.page)} onClick={() => onNavigate(item.page)} />
+          ))}
+        </div>
       </div>
     </div>
   );

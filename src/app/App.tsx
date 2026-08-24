@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { RecentWinners } from './components/RecentWinners';
@@ -119,6 +119,21 @@ export default function App() {
   const [depositOpen, setDepositOpen] = useState(false);
   const [withdrawOpen, setWithdrawOpen] = useState(false);
   const [authModal, setAuthModal] = useState<'login' | 'cadastro' | 'esqueci-senha' | null>(null);
+  const [bottomNavShrunk, setBottomNavShrunk] = useState(false);
+
+  // Bottom nav shrinks on scroll up, returns to normal size on scroll down.
+  useEffect(() => {
+    const lastY = { current: window.scrollY };
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      if (Math.abs(delta) < 6) return; // ignore tiny/jittery movement
+      setBottomNavShrunk(delta < 0 && y > 40);
+      lastY.current = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const ACCOUNT_SECTIONS = ['minha-conta','carteira','apostas','limites','pausas-suspensoes','seguranca','contas-bancarias'];
   const BONUS_SLUGS = ['bonus'];
@@ -348,6 +363,7 @@ export default function App() {
         activePage={activePage}
         onNavigate={navigate}
         onToggleSidebar={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+        shrunk={bottomNavShrunk}
       />
 
       {depositOpen && <DepositModal onClose={() => setDepositOpen(false)} />}
