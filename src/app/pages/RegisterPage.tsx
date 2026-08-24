@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Eye, EyeOff, AlertCircle } from 'lucide-react';
 import { AuthLayout } from '../components/AuthLayout';
+import { SocialAuthButtons } from '../components/SocialAuthButtons';
 
 interface Props {
   onNavigate: (page: string) => void;
@@ -169,6 +170,8 @@ export function RegisterPage({ onNavigate, onClose }: Props) {
             Continuar
           </button>
         </form>
+
+        <SocialAuthButtons onGoogle={() => onNavigate('home')} onApple={() => onNavigate('home')} />
 
         <p className="text-center text-gray-600 text-xs mt-6">
           <button onClick={() => onNavigate('login')} className="hover:text-black transition-colors">
